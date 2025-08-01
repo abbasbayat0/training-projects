@@ -1,0 +1,74 @@
+{
+  "people": [
+    {
+      "id": 1,
+      "name": "Ali",
+      "age": 25,
+      "job": "Engineer",
+      "goodPerson": false
+    },
+    {
+      "id": 2,
+      "name": "Hoda",
+      "age": 30,
+      "job": "Doctor",
+      "goodPerson": false
+    },
+    {
+      "id": 3,
+      "name": "Peyman",
+      "age": 22,
+      "job": "Teacher",
+      "goodPerson": true
+    },
+    {
+      "id": 4,
+      "name": "Sara",
+      "age": 28,
+      "job": "Designer",
+      "goodPerson": false
+    },
+    {
+      "id": 5,
+      "name": "Reza",
+      "age": 35,
+      "job": "Architect",
+      "goodPerson": false
+    },
+    {
+      "id": 6,
+      "name": "Maryam",
+      "age": 27,
+      "job": "Nurse",
+      "goodPerson": false
+    },
+    {
+      "id": 7,
+      "name": "Kamal",
+      "age": 24,
+      "job": "Chef",
+      "goodPerson": false
+    },
+    {
+      "id": 8,
+      "name": "Fatemeh",
+      "age": 31,
+      "job": "Lawyer",
+      "goodPerson": false
+    },
+    {
+      "id": 9,
+      "name": "Mohammad",
+      "age": 29,
+      "job": "Writer",
+      "goodPerson": false
+    },
+    {
+      "id": 10,
+      "name": "Nileh",
+      "age": 26,
+      "job": "Musician",
+      "goodPerson": false
+    }
+  ]
+}
