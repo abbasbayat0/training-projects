@@ -1,7 +1,7 @@
 import useGlobalContext from "../hooks/useGlobalContext";
 
-const Item = ({ id, title, show }) => {
-  const { remove, showMore } = useGlobalContext();
+const Item = ({ id, title }) => {
+  const { remove, showMore, current } = useGlobalContext();
   return (
     <div className="flex flex-col justify-center items-center">
       <p>{title}</p>
@@ -19,9 +19,9 @@ const Item = ({ id, title, show }) => {
           showMore(id);
         }}
       >
-        {show ? "close" : "open"}
+        {current === id ? "close" : "open"}
       </p>
-      {show ? (
+      {current === id ? (
         <p className="text-center max-w-8/12 border rounded-2xl">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis
           perspiciatis aliquam accusantium sequi harum voluptatum aut

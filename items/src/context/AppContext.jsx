@@ -6,6 +6,7 @@ export const AppContext = createContext();
 export const AppProvider = ({ children }) => {
   const [list, setList] = useState([]);
   const [category, setCategory] = useState("all");
+  const [current, setCurrent] = useState();
 
   const filteredList =
     category === "all"
@@ -27,12 +28,8 @@ export const AppProvider = ({ children }) => {
   };
 
   const showMore = (id) => {
-    const newList = list.map((item) => {
-      if (item.id === id) return { ...item, show: !item.show };
-      return { ...item, show: false };
-    });
-    setList(newList);
-    localStorage.setItem("list", JSON.stringify(newList));
+    if (current === id) setCurrent();
+    else setCurrent(id);
   };
 
   return (
@@ -46,6 +43,7 @@ export const AppProvider = ({ children }) => {
         category,
         remove,
         showMore,
+        current
       }}
     >
       {children}
