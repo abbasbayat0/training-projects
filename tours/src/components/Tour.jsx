@@ -5,8 +5,8 @@ const Tour = ({ id, name, info, image, price }) => {
   const [showFull, setShowFull] = useState(false);
   const { removeItem } = useRemoveItem();
   return (
-    <section className="w-full p-5 flex justify-center items-center flex-col rounded-2xl">
-      <img src={image} alt={name} className="rounded-2xl" />
+    <section className="max-w-full p-5 flex justify-center items-center flex-col rounded-2xl">
+      <img src={image} alt={name} className="rounded-2xl max-w-5/12 max-h-[350px]" />
       <p className="text-center mt-2">{name}</p>
       <p>{price}$</p>
       <div>
