@@ -25,6 +25,16 @@ export const AppProvider = ({ children }) => {
     setList(newList);
     localStorage.setItem("list", JSON.stringify(newList));
   };
+
+  const showMore = (id) => {
+    const newList = list.map((item) => {
+      if (item.id === id) return { ...item, show: !item.show };
+      return { ...item, show: false };
+    });
+    setList(newList);
+    localStorage.setItem("list", JSON.stringify(newList));
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -35,6 +45,7 @@ export const AppProvider = ({ children }) => {
         filteredList,
         category,
         remove,
+        showMore,
       }}
     >
       {children}
