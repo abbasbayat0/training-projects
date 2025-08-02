@@ -1,8 +1,14 @@
 import submit from "../utils/submit";
+import useGlobalContext from "../hooks/useGlobalContext";
 
 const Form = () => {
+  const { setList } = useGlobalContext();
+  const handleSubmit = (e) => {
+    const newList = submit(e);
+    setList(newList);
+  };
   return (
-    <form className="flex gap-5" onSubmit={submit}>
+    <form className="flex gap-5" onSubmit={handleSubmit}>
       <div className="flex gap-2 justify-center items-center">
         <label htmlFor="title">title:</label>
         <input
