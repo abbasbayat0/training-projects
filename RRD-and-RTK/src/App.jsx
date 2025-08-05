@@ -9,6 +9,7 @@ const App = () => {
     {
       path: "/",
       element: <Home />,
+      errorElement: <h2>somethings went wrong</h2>,
       children: [
         {
           index: true,
