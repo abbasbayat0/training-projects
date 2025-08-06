@@ -1,13 +1,17 @@
 const App = () => {
-  let orderStatus: "processing" | "delivered" | "shipped" = "processing";
-  orderStatus = "delivered";
+  // let names: string[] = ["abbas", "ahmad"];
+  // const info: (string | number)[] = ["abbas", 22, "ahmad", 22, "saleh", 21];
+  // console.log(info)
 
-  console.log(orderStatus);
+  const items: { title: string; cost?: number }[] = [
+    { title: "hello", cost: 20 },
+    { title: "bye" },
+  ];
+  console.log(items);
 
-  let discount: number | string = 20;
-  discount = "20%";
-
-  console.log(discount);
+  const numbers: readonly number[] = [1, 2, 3, 4, 5];
+  // numbers.push(6)
+  console.log(numbers);
 
   return <div>App</div>;
 };
