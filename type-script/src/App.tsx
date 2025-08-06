@@ -1,17 +1,27 @@
 const App = () => {
-  // let names: string[] = ["abbas", "ahmad"];
-  // const info: (string | number)[] = ["abbas", 22, "ahmad", 22, "saleh", 21];
-  // console.log(info)
+  const sayHi = (name: string): string => {
+    // console.log(name)
+    return `hi ${name}`;
+  };
+  console.log(sayHi("abbas"));
 
-  const items: { title: string; cost?: number }[] = [
-    { title: "hello", cost: 20 },
-    { title: "bye" },
-  ];
-  console.log(items);
+  const names: string[] = ["abbas", "ahmad", "hassan", "saleh"];
 
-  const numbers: readonly number[] = [1, 2, 3, 4, 5];
-  // numbers.push(6)
-  console.log(numbers);
+  const checkIsNameInNames = (name: string): boolean => {
+    // for (const item of names) {
+    //   if (item === name) {
+    //     console.log(item);
+    //     return true;
+    //   }
+    // }
+    // return false;
+
+    return names.includes(name);
+  };
+  // console.log(checkIsNameInNames("abbas"));
+  const name: string = "hassan";
+  if (checkIsNameInNames(name)) console.log(`${name} is in names`);
+  else console.log(`${name} is not in names`);
 
   return <div>App</div>;
 };
