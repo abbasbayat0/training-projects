@@ -1,15 +1,15 @@
 const App = () => {
-  const processInput = (parameter: string | number) => {
-    if (typeof parameter === "number") console.log(parameter * 2);
-    else if (typeof parameter === "string")
-      console.log(parameter.toUpperCase());
+  const processData = (
+    input: string | number,
+    config: { reverse: boolean } = { reverse: false }
+  ): string | number | undefined => {
+    if (typeof input === "number") return input * input;
+    else if (typeof input === "string" && config.reverse)
+      return input.split("").reverse().join("");
+    else if (typeof input === "string") return input.toUpperCase();
   };
-  processInput("abbas");
 
-  const rest = (...numbers: number[]) => {
-    console.log(numbers);
-  };
-  rest(1, 2, 3, 4, 5);
+  console.log(processData("abbas", { reverse: true }));
   return <div>App</div>;
 };
 
