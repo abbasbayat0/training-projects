@@ -1,28 +1,15 @@
 const App = () => {
-  const sayHi = (name: string): string => {
-    // console.log(name)
-    return `hi ${name}`;
+  const processInput = (parameter: string | number) => {
+    if (typeof parameter === "number") console.log(parameter * 2);
+    else if (typeof parameter === "string")
+      console.log(parameter.toUpperCase());
   };
-  console.log(sayHi("abbas"));
+  processInput("abbas");
 
-  const names: string[] = ["abbas", "ahmad", "hassan", "saleh"];
-
-  const checkIsNameInNames = (name: string): boolean => {
-    // for (const item of names) {
-    //   if (item === name) {
-    //     console.log(item);
-    //     return true;
-    //   }
-    // }
-    // return false;
-
-    return names.includes(name);
+  const rest = (...numbers: number[]) => {
+    console.log(numbers);
   };
-  // console.log(checkIsNameInNames("abbas"));
-  const name: string = "hassan";
-  if (checkIsNameInNames(name)) console.log(`${name} is in names`);
-  else console.log(`${name} is not in names`);
-
+  rest(1, 2, 3, 4, 5);
   return <div>App</div>;
 };
 
