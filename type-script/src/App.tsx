@@ -1,28 +1,15 @@
 const App = () => {
-  enum UserRole {
-    Admin,
-    Manager,
-    Employee,
-  }
-  type User = {
-    id: number;
+  // const x: any = 3.1415;
+  // const y = (x as number).toFixed(2);
+  // console.log(y);
+
+  type MyInfo = {
     name: string;
-    role: UserRole;
-    contact: [string, string];
+    age: number;
   };
-
-  const createUser = (user: User): User => {
-    return user;
-  };
-
-  const user = createUser({
-    id: 1,
-    name: "abbas",
-    role: UserRole.Admin,
-    contact: ["", ""],
-  });
-  if(user.role === 0)console.log("hey")
-
+  const parsedInfo = JSON.parse(JSON.stringify({ name: "abbas", age: 22 }));
+  const myName = (parsedInfo as MyInfo).name;
+  console.log(myName);
   return <div>App</div>;
 };
 
