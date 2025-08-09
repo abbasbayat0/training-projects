@@ -1,15 +1,11 @@
 const App = () => {
-  // const x: any = 3.1415;
-  // const y = (x as number).toFixed(2);
-  // console.log(y);
-
-  type MyInfo = {
-    name: string;
-    age: number;
-  };
-  const parsedInfo = JSON.parse(JSON.stringify({ name: "abbas", age: 22 }));
-  const myName = (parsedInfo as MyInfo).name;
-  console.log(myName);
+  try {
+    console.log("first");
+  } catch (error) {
+    const e = error;
+    if (e instanceof Error) console.log(e.message);
+    else if (typeof e === "string") console.log(e.toLowerCase());
+  }
   return <div>App</div>;
 };
 
