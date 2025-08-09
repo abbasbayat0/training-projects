@@ -1,11 +1,29 @@
 const App = () => {
-  try {
-    console.log("first");
-  } catch (error) {
-    const e = error;
-    if (e instanceof Error) console.log(e.message);
-    else if (typeof e === "string") console.log(e.toLowerCase());
+  // type MyType = "typeOne" | "typeTwo";
+  // const me = (type: MyType): void => {
+  //   if (type === "typeOne") console.log("first");
+  //   else if (type === "typeTwo") console.log("second");
+  //type -> never
+  // };
+  enum X {
+    Blue,
+    Red,
   }
+
+  const colorPicker = (color: X) => {
+    switch (color) {
+      case X.Blue:
+        return "blue";
+      case X.Red:
+        return "red";
+
+      default:
+        const Y: never = X;
+
+        throw new Error("mi");
+    }
+  };
+  colorPicker(X.Blue);
   return <div>App</div>;
 };
 
