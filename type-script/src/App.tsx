@@ -37,17 +37,34 @@ const App = () => {
   // getData(12)
 
   // instanceof
-  const fetchData = async () => {
-    try {
-      const response = await fetch("https://www.google.com");
-      const data = await response.json();
-      return data;
-    } catch (error) {
-      if (error instanceof Error) console.log(error.message);
-      else console.log(error);
-    }
+  // const fetchData = async () => {
+  //   try {
+  //     const response = await fetch("https://www.google.com");
+  //     const data = await response.json();
+  //     return data;
+  //   } catch (error) {
+  //     if (error instanceof Error) console.log(error.message);
+  //     else console.log(error);
+  //   }
+  // };
+  // fetchData()
+
+  // is
+  type D1 = {
+    id: number;
+    name: string;
+    talk: () => void;
   };
-  fetchData()
+  type D2 = {
+    id: number;
+    name: string;
+    walk: () => void;
+  };
+  const what = (input: D1 | D2): input is D1 => {
+    return "talk" in input;
+  };
+  const instance = what({id:1, name: "abbas", talk:()=>{}})
+  console.log(instance)
   return <div>App</div>;
 };
 
