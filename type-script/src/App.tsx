@@ -50,21 +50,43 @@ const App = () => {
   // fetchData()
 
   // is
-  type D1 = {
-    id: number;
-    name: string;
-    talk: () => void;
+  // type D1 = {
+  //   id: number;
+  //   name: string;
+  //   talk: () => void;
+  // };
+  // type D2 = {
+  //   id: number;
+  //   name: string;
+  //   walk: () => void;
+  // };
+  // const what = (input: D1 | D2): input is D1 => {
+  //   return "talk" in input;
+  // };
+  // const instance = what({id:1, name: "abbas", talk:()=>{}})
+  // console.log(instance)
+
+  // never
+  enum E1 {
+    Blue,
+    Red,
+    Green,
+  }
+  const someFunc = (input: E1) => {
+    switch (input) {
+      case E1.Blue:
+        console.log("first");
+        break;
+      case E1.Red:
+        console.log("second");
+        break;
+      default:
+        let never: never = E1;
+        console.log("failed")
+        break;
+    }
   };
-  type D2 = {
-    id: number;
-    name: string;
-    walk: () => void;
-  };
-  const what = (input: D1 | D2): input is D1 => {
-    return "talk" in input;
-  };
-  const instance = what({id:1, name: "abbas", talk:()=>{}})
-  console.log(instance)
+  someFunc(E1.Green);
   return <div>App</div>;
 };
 
