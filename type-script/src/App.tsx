@@ -1,29 +1,53 @@
+// type guards
+
 const App = () => {
-  // type MyType = "typeOne" | "typeTwo";
-  // const me = (type: MyType): void => {
-  //   if (type === "typeOne") console.log("first");
-  //   else if (type === "typeTwo") console.log("second");
-  //type -> never
+  // typeof
+  // type Input = string | number;
+  // const getInput = (input: Input): void => {
+  //   if (typeof input === "string") console.log(input.toUpperCase());
+  //   else console.log(input);
   // };
-  enum X {
-    Blue,
-    Red,
-  }
+  // getInput("abbas")
 
-  const colorPicker = (color: X) => {
-    switch (color) {
-      case X.Blue:
-        return "blue";
-      case X.Red:
-        return "red";
+  // equality
+  // type User = { id: number; name: string; role: string };
+  // type Student = { id: number; name: string; role: string };
+  // const getData = (data: User | Student) => {
+  //   if (data.role === "student") console.log("this is a student");
+  //   else console.log(`this is ${data.role}`);
+  // };
+  // getData({ id: 2, name: "abbas", role: "student" });
 
-      default:
-        const Y: never = X;
+  // property check
+  // type Human = { name: string; family: string; getFullName: () => void };
+  // type Animal = { name: string; walk: () => void };
+  // type Mix = Human | Animal;
+  // const getData = (data: Mix) => {
+  //   if ("getFullName" in data) console.log("human");
+  //   else console.log("animal");
+  // };
+  // getData({ name: "pishi", walk: () => {} });
 
-        throw new Error("mi");
+  // truthy & falsy
+  // type Input = number | null | undefined;
+  // const getData = (input: Input): void => {
+  //   if (input) console.log(input);
+  //   else console.log("invalid input");
+  // };
+  // getData(12)
+
+  // instanceof
+  const fetchData = async () => {
+    try {
+      const response = await fetch("https://www.google.com");
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      if (error instanceof Error) console.log(error.message);
+      else console.log(error);
     }
   };
-  colorPicker(X.Blue);
+  fetchData()
   return <div>App</div>;
 };
 
