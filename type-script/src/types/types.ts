@@ -9,3 +9,13 @@ export type Store = {
   setData: (list: Data[]) => void;
   changeDone: (id: number) => void;
 };
+
+export type ItemProps = {
+  data: Data;
+  changeDone: (id: number) => void;
+};
+
+export type ListProps = {
+  data: Data[];
+  changeDone: (id: number) => void;
+};
