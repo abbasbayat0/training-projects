@@ -19,6 +19,8 @@ const useStore = create<Store>((set, get) => ({
     });
     set({ data: newData });
   },
+
+  // delete One
 }));
 
 export default useStore;

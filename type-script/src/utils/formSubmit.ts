@@ -1,10 +1,6 @@
-import type { Data } from "../types/types";
+import type { Data, FormSubmitFunc } from "../types/types";
 
-const formSubmit = (
-  e: React.FormEvent<HTMLFormElement>,
-  data: Data[],
-  setData: (item: Data) => void
-) => {
+const formSubmit = ({ e, data, setData }: FormSubmitFunc) => {
   e.preventDefault();
   const formData = new FormData(e.currentTarget);
   if (formData) {

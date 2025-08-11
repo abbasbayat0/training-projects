@@ -20,3 +20,9 @@ export type ListProps = {
   changeDone: (id: number) => void;
   setData: (item: Data) => void;
 };
+
+export type FormSubmitFunc = {
+  e: React.FormEvent<HTMLFormElement>;
+  data: Data[];
+  setData: (item: Data) => void;
+};
