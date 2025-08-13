@@ -1,7 +1,9 @@
+import SmallNav from "../ui/SmallNav";
+
 const Navbar = () => {
   return (
-    <div className="text-">Navbar</div>
-  )
-}
+    <SmallNav />
+  );
+};
 
-export default Navbar
+export default Navbar;

@@ -8,7 +8,7 @@ const page = () => {
         <MemberLine />
         <Navbar />
       </header>
-      <main>main one</main>
+      <main className="mt-20">main one</main>
       <footer>footer one</footer>
     </>
   );
