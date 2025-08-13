@@ -1,7 +1,13 @@
+import Navbar from "@/components/shared/Navbar";
+import UserLine from "@/components/shared/UserLine";
+
 const page = () => {
   return (
     <>
-      <header>header one</header>
+      <header>
+        <UserLine />
+        <Navbar />
+      </header>
       <main>main one</main>
       <footer>footer one</footer>
     </>
