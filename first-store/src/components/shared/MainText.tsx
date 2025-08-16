@@ -22,8 +22,8 @@ const MainText = () => {
           culpa eos porro exercitationem. Ab, tempore?
         </p>
         <button
-          className={`p-2 w-auto text-sm py-3 text-nowrap opacity-90 max-w-36 rounded-xl ${
-            dark ? "bg-pink-600 text-black" : "bg-blue-600 text-white"
+          className={`p-2 w-auto text-sm py-3 text-nowrap opacity-90 max-w-36 rounded-xl text-white ${
+            dark ? "bg-pink-600" : "bg-blue-600"
           }`}
         >
           OUR PRODUCTS

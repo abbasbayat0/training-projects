@@ -16,10 +16,12 @@ const page = () => {
       <main
         className={`${
           dark && "bg-gray-700"
-        } flex justify-center items-center h-full w-full max-w-7xl py-5 mx-auto`}
+        } h-full w-full`}
       >
-        <MainText />
-        <MainSlider />
+        <div className="max-w-7xl flex justify-center items-center py-5 mx-auto">
+          <MainText />
+          <MainSlider />
+        </div>
       </main>
       <footer>footer one</footer>
     </div>

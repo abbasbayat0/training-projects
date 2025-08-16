@@ -8,7 +8,7 @@ import NavLinks from "../ui/NavLinks";
 const Navbar = () => {
   const { dark } = store();
   return (
-    <section className="max-w-7xl mx-auto flex justify-between py-2 px-2">
+    <section className="max-w-7xl mx-auto flex justify-between py-2 px-3">
       <div
         className={`${
           dark ? "bg-pink-700" : "bg-blue-600"
