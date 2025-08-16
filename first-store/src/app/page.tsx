@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import MainSlider from "@/components/shared/MainSlider";
 import MainText from "@/components/shared/MainText";
 import Navbar from "@/components/shared/Navbar";
@@ -8,8 +8,8 @@ import store from "@/lib/store/store";
 const page = () => {
   const { dark } = store();
   return (
-    <div>
-      <header>
+    <div className="w-full">
+      <header className={`${dark ? "bg-gray-900" : "bg-gray-200"}`}>
         <UserLine />
         <Navbar />
       </header>
