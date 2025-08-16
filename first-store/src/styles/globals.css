@@ -3,3 +3,11 @@
   --breakpoint-850: 54rem;
   --breakpoint-950: 60rem;
 }
+
+.scroll-smooth::-webkit-scrollbar {
+  display: none;
+}
+.scroll-smooth {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
