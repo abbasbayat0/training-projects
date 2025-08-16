@@ -5,7 +5,7 @@ import { useState } from "react";
 import { HiOutlineMenuAlt1 } from "react-icons/hi";
 
 const NavMenu = () => {
-  const [showMenu, setShowMenu] = useState(true);
+  const [showMenu, setShowMenu] = useState(false);
   const { dark } = store();
   return (
     <div className="relative sm:hidden">
