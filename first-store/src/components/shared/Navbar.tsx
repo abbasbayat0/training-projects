@@ -2,8 +2,8 @@
 import { MdOutlineShoppingCart } from "react-icons/md";
 import ThemeIcon from "../ui/ThemeIcon";
 import store from "@/lib/store/store";
-import NavMenu from "../ui/NavMenu";
-import NavLinks from "../ui/NavLinks";
+// import NavMenu from "../ui/NavMenu";
+// import NavLinks from "../ui/NavLinks";
 
 const Navbar = () => {
   const { dark } = store();
@@ -17,8 +17,8 @@ const Navbar = () => {
         C
       </div>
       <div className="flex items-center">
-        <NavMenu />
-        <NavLinks />
+        {/* <NavMenu />
+        <NavLinks /> */}
       </div>
       <div className="flex justify-end items-center gap-2">
         <ThemeIcon />
