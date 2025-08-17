@@ -11,13 +11,13 @@ const ThemeIcon = () => {
       {dark ? (
         <IoSunny
           className={`${
-            dark ? "text-2xl opacity-80 text-white" : "text-2xl opacity-80"
+            dark ? "text-2xl text-white opacity-80" : "text-2xl opacity-80"
           } cursor-pointer`}
           onClick={() => setTheme()}
         />
       ) : (
         <FaMoon
-          className="text-2xl opacity-80 cursor-pointer"
+          className="cursor-pointer text-2xl opacity-80"
           onClick={() => setTheme()}
         />
       )}

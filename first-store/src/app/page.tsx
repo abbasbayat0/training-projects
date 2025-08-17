@@ -18,7 +18,7 @@ const page = () => {
           <Navbar />
         </header>
         <main className={`${dark && "bg-gray-700"} w-full`}>
-          <div className="max-w-7xl flex justify-center items-center py-5 mx-auto">
+          <div className="mx-auto flex max-w-7xl items-center justify-center py-5">
             <MainText />
             <MainSlider />
           </div>

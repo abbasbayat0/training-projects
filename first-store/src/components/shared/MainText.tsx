@@ -5,7 +5,7 @@ const MainText = () => {
   const { dark } = store();
   return (
     <article className={`p-5 sm:w-2/3`}>
-      <section className="max-w-7xl flex flex-col gap-5 justify-start align-center mt-5 sm:gap-8">
+      <section className="align-center mt-5 flex max-w-7xl flex-col justify-start gap-5 sm:gap-8">
         <h1
           className={`text-4xl font-bold opacity-70 sm:text-5xl ${
             dark && "text-white"
@@ -22,7 +22,7 @@ const MainText = () => {
           culpa eos porro exercitationem. Ab, tempore?
         </p>
         <button
-          className={`p-2 w-auto text-sm py-3 text-nowrap opacity-90 max-w-36 rounded-xl text-white ${
+          className={`w-auto max-w-36 rounded-xl p-2 py-3 text-sm text-nowrap text-white opacity-90 ${
             dark ? "bg-pink-600" : "bg-blue-600"
           }`}
         >

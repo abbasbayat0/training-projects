@@ -11,21 +11,21 @@ const FeaturedProducts = () => {
   if (status === "success") products = [...data?.data.data];
 
   return (
-    <div className="max-w-7xl flex flex-col justify-center items-center p-5 mx-auto">
-      <div className="flex justify-start items-start w-full">
-        <h1 className={`${dark ? "text-white" : ""} text-3xl w-1/2 opacity-80`}>
+    <div className="mx-auto flex max-w-7xl flex-col items-center justify-center p-5">
+      <div className="flex w-full items-start justify-start">
+        <h1 className={`${dark ? "text-white" : ""} w-1/2 text-3xl opacity-80`}>
           Featured Products
         </h1>
       </div>
       <div
-        className={`w-full h-[1px] border mt-3 shadow bg-black mx-auto opacity-20`}
+        className={`mx-auto mt-3 h-[1px] w-full border bg-black opacity-20 shadow`}
       ></div>
       <div>
         {products.length === 0 ? (
           <h1 className={`${dark && "text-white"} mt-5`}>Loading Data ...</h1>
         ) : (
           <div
-            className={`mt-10 flex flex-col flex-wrap gap-10 w-full p-5 sm:flex-row lg:gap-12`}
+            className={`mt-10 flex w-full flex-col flex-wrap gap-10 p-5 sm:flex-row lg:gap-12`}
           >
             {products.map(({ id, attributes }) => {
               const formatted = (amount: number) => {
@@ -37,18 +37,18 @@ const FeaturedProducts = () => {
               return (
                 <div
                   key={id}
-                  className={`shadow-xl hover:shadow-2xl transition duration-500 flex flex-col justify-center items-center rounded-xl mx-auto p-5`}
+                  className={`mx-auto flex flex-col items-center justify-center rounded-xl p-5 shadow-xl transition duration-500 hover:shadow-2xl ${dark && "bg-gray-600"}`}
                 >
-                  <div className="w-54 h-60 lg:w-60 lg:h-64 rounded-xl overflow-hidden flex justify-center items-center">
+                  <div className="flex h-60 w-54 items-center justify-center overflow-hidden rounded-xl lg:h-64 lg:w-60">
                     <img
                       src={attributes.image}
                       alt={attributes.title}
                       className="object-cover"
                     />
                   </div>
-                  <div className="flex flex-col justify-center items-center">
+                  <div className="flex flex-col items-center justify-center">
                     <p
-                      className={`text-nowrap mt-2 ${
+                      className={`mt-2 text-nowrap ${
                         dark && "text-white"
                       } lg:text-lg`}
                     >
@@ -56,7 +56,7 @@ const FeaturedProducts = () => {
                     </p>
                     <p
                       className={`mx-auto my-2 text-sm opacity-80 ${
-                        dark && "text-pink-500"
+                        dark && "text-pink-400"
                       }`}
                     >
                       {formatted(Number(attributes.price))}

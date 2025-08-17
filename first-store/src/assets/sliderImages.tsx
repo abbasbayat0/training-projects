@@ -10,4 +10,4 @@ const images = [
   { id: 4, link: four },
 ];
 
-export default images
+export default images;

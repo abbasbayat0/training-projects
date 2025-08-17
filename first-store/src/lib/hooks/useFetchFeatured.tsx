@@ -4,7 +4,7 @@ import axios from "axios";
 const useFetchFeatured = () => {
   const fetchFeaturedProducts = async () => {
     const data = await axios.get(
-      "https://strapi-store-server.onrender.com/api/products?featured=true"
+      "https://strapi-store-server.onrender.com/api/products?featured=true",
     );
     return data;
   };

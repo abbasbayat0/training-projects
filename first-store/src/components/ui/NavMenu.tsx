@@ -14,7 +14,7 @@ const NavMenu = () => {
         onClick={() => setShowMenu(!showMenu)}
       />
       <div
-        className={`absolute bg-gray-300 flex flex-col gap-1 min-w-44 py-4 rounded-xl top-12 ${
+        className={`absolute top-12 flex min-w-44 flex-col gap-1 rounded-xl bg-gray-300 py-4 ${
           dark && "bg-gray-900"
         } ${!showMenu && "hidden"}`}
       >
@@ -23,7 +23,7 @@ const NavMenu = () => {
           return (
             <div
               key={link.link}
-              className={`flex justify-center items-center gap-2 py-1 w-3/4 mx-auto rounded-xl ${
+              className={`mx-auto flex w-3/4 items-center justify-center gap-2 rounded-xl py-1 ${
                 isActive && "bg-gray-700"
               }`}
             >

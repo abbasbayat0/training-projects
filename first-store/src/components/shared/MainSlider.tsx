@@ -6,9 +6,9 @@ import Image from "next/image";
 const MainSlider = () => {
   const { dark } = store();
   return (
-    <article className={`hidden sm:flex sm:w-1/3 mr-2`}>
+    <article className={`mr-2 hidden sm:flex sm:w-1/3`}>
       <section
-        className={`flex justify-start items-center gap-3 px-4 py-5 rounded-xl w-full overflow-scroll scroll-smooth ${
+        className={`flex w-full items-center justify-start gap-3 overflow-scroll scroll-smooth rounded-xl px-4 py-5 ${
           dark ? "bg-gray-600" : "bg-gray-700"
         }`}
       >
@@ -16,7 +16,7 @@ const MainSlider = () => {
           return (
             <div
               key={image.id}
-              className="min-w-52 h-80 overflow-hidden rounded-xl flex justify-start"
+              className="flex h-80 min-w-52 justify-start overflow-hidden rounded-xl"
             >
               <Image
                 src={image.link}
