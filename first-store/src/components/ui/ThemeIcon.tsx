@@ -16,10 +16,7 @@ const ThemeIcon = () => {
           onClick={() => setTheme()}
         />
       ) : (
-        <FaMoon
-          className="cursor-pointer text-2xl opacity-80"
-          onClick={() => setTheme()}
-        />
+        <FaMoon className='cursor-pointer text-2xl opacity-80' onClick={() => setTheme()} />
       )}
     </div>
   );

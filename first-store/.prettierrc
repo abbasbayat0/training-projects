@@ -1,17 +1,22 @@
 {
-  "printWidth": 80,
+  "printWidth": 100,
   "tabWidth": 2,
   "useTabs": false,
   "semi": true,
   "singleQuote": true,
+  "jsxSingleQuote": true,
   "quoteProps": "as-needed",
-  "jsxSingleQuote": false,
   "trailingComma": "all",
   "bracketSpacing": true,
-  "bracketSameLine": true,
+  "bracketSameLine": false,
   "arrowParens": "always",
   "endOfLine": "lf",
   "proseWrap": "always",
   "htmlWhitespaceSensitivity": "strict",
-  "plugins": ["prettier-plugin-tailwindcss"]
+  "plugins": ["prettier-plugin-tailwindcss"],
+  "overrides": [
+    { "files": "*.tsx", "options": { "parser": "typescript" } },
+    { "files": "*.ts", "options": { "parser": "typescript" } },
+    { "files": "*.js", "options": { "parser": "babel" } }
+  ]
 }

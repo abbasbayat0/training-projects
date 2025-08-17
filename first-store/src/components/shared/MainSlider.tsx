@@ -10,17 +10,15 @@ const MainSlider = () => {
       <section
         className={`flex w-full items-center justify-start gap-3 overflow-scroll scroll-smooth rounded-xl px-4 py-5 ${
           dark ? 'bg-gray-600' : 'bg-gray-700'
-        }`}>
+        }`}
+      >
         {images.map((image) => {
           return (
             <div
               key={image.id}
-              className="flex h-80 min-w-52 justify-start overflow-hidden rounded-xl">
-              <Image
-                src={image.link}
-                alt="slider Image"
-                className="object-cover"
-              />
+              className='flex h-80 min-w-52 justify-start overflow-hidden rounded-xl'
+            >
+              <Image src={image.link} alt='slider Image' className='object-cover' />
             </div>
           );
         })}

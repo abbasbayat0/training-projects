@@ -8,7 +8,7 @@ const NavMenu = () => {
   const [showMenu, setShowMenu] = useState(false);
   const { dark } = store();
   return (
-    <div className="relative sm:hidden">
+    <div className='relative sm:hidden'>
       <HiOutlineMenuAlt1
         className={`text-3xl ${dark && 'text-white'}`}
         onClick={() => setShowMenu(!showMenu)}
@@ -16,7 +16,8 @@ const NavMenu = () => {
       <div
         className={`absolute top-12 flex min-w-44 flex-col gap-1 rounded-xl bg-gray-300 py-4 ${
           dark && 'bg-gray-900'
-        } ${!showMenu && 'hidden'}`}>
+        } ${!showMenu && 'hidden'}`}
+      >
         {listOfNavLinks.map((link) => {
           const isActive = window.location.pathname === link.link;
           return (
@@ -24,17 +25,12 @@ const NavMenu = () => {
               key={link.link}
               className={`mx-auto flex w-3/4 items-center justify-center gap-2 rounded-xl py-1 ${
                 isActive && 'bg-gray-700'
-              }`}>
-              <p
-                className={`${isActive && 'text-white'} text-xl ${
-                  dark && 'text-white'
-                }`}>
+              }`}
+            >
+              <p className={`${isActive && 'text-white'} text-xl ${dark && 'text-white'}`}>
                 {link.icon}
               </p>
-              <p
-                className={`w-1/2 ${isActive && 'text-white'} ${
-                  dark && 'text-white'
-                }`}>
+              <p className={`w-1/2 ${isActive && 'text-white'} ${dark && 'text-white'}`}>
                 {link.title}
               </p>
             </div>
