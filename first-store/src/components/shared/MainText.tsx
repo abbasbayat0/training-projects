@@ -1,5 +1,5 @@
-"use client";
-import store from "@/lib/store/store";
+'use client';
+import store from '@/lib/store/store';
 
 const MainText = () => {
   const { dark } = store();
@@ -8,14 +8,12 @@ const MainText = () => {
       <section className="align-center mt-5 flex max-w-7xl flex-col justify-start gap-5 sm:gap-8">
         <h1
           className={`text-4xl font-bold opacity-70 sm:text-5xl ${
-            dark && "text-white"
-          }`}
-        >
+            dark && 'text-white'
+          }`}>
           We are changing the way people shop
         </h1>
         <p
-          className={`text-sm opacity-70 sm:text-base ${dark && "text-white"}`}
-        >
+          className={`text-sm opacity-70 sm:text-base ${dark && 'text-white'}`}>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatem
           nesciunt voluptatum, exercitationem nisi iusto maiores distinctio,
           repellat dignissimos officiis velit perspiciatis. Rerum animi facere
@@ -23,9 +21,8 @@ const MainText = () => {
         </p>
         <button
           className={`w-auto max-w-36 rounded-xl p-2 py-3 text-sm text-nowrap text-white opacity-90 ${
-            dark ? "bg-pink-600" : "bg-blue-600"
-          }`}
-        >
+            dark ? 'bg-pink-600' : 'bg-blue-600'
+          }`}>
           OUR PRODUCTS
         </button>
       </section>

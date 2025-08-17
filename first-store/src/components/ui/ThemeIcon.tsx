@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { FaMoon } from "react-icons/fa6";
-import { IoSunny } from "react-icons/io5";
-import store from "@/lib/store/store";
+import { FaMoon } from 'react-icons/fa6';
+import { IoSunny } from 'react-icons/io5';
+import store from '@/lib/store/store';
 
 const ThemeIcon = () => {
   const { dark, setTheme } = store();
@@ -11,7 +11,7 @@ const ThemeIcon = () => {
       {dark ? (
         <IoSunny
           className={`${
-            dark ? "text-2xl text-white opacity-80" : "text-2xl opacity-80"
+            dark ? 'text-2xl text-white opacity-80' : 'text-2xl opacity-80'
           } cursor-pointer`}
           onClick={() => setTheme()}
         />

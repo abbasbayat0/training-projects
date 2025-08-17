@@ -1,5 +1,5 @@
-import listOfNavLinks from "@/assets/listOfNavLinks";
-import store from "@/lib/store/store";
+import listOfNavLinks from '@/assets/listOfNavLinks';
+import store from '@/lib/store/store';
 
 const NavLinks = () => {
   const { dark } = store();
@@ -11,9 +11,8 @@ const NavLinks = () => {
           <p
             key={item.link}
             className={`cursor-pointer rounded-xl p-2 text-sm select-none ${
-              dark && "text-white"
-            } ${isActive && "bg-gray-700 text-white"}`}
-          >
+              dark && 'text-white'
+            } ${isActive && 'bg-gray-700 text-white'}`}>
             {item.title}
           </p>
         );

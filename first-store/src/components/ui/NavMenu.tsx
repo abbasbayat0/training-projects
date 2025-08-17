@@ -1,8 +1,8 @@
-"use client";
-import listOfNavLinks from "@/assets/listOfNavLinks";
-import store from "@/lib/store/store";
-import { useState } from "react";
-import { HiOutlineMenuAlt1 } from "react-icons/hi";
+'use client';
+import listOfNavLinks from '@/assets/listOfNavLinks';
+import store from '@/lib/store/store';
+import { useState } from 'react';
+import { HiOutlineMenuAlt1 } from 'react-icons/hi';
 
 const NavMenu = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -10,35 +10,31 @@ const NavMenu = () => {
   return (
     <div className="relative sm:hidden">
       <HiOutlineMenuAlt1
-        className={`text-3xl ${dark && "text-white"}`}
+        className={`text-3xl ${dark && 'text-white'}`}
         onClick={() => setShowMenu(!showMenu)}
       />
       <div
         className={`absolute top-12 flex min-w-44 flex-col gap-1 rounded-xl bg-gray-300 py-4 ${
-          dark && "bg-gray-900"
-        } ${!showMenu && "hidden"}`}
-      >
+          dark && 'bg-gray-900'
+        } ${!showMenu && 'hidden'}`}>
         {listOfNavLinks.map((link) => {
           const isActive = window.location.pathname === link.link;
           return (
             <div
               key={link.link}
               className={`mx-auto flex w-3/4 items-center justify-center gap-2 rounded-xl py-1 ${
-                isActive && "bg-gray-700"
-              }`}
-            >
+                isActive && 'bg-gray-700'
+              }`}>
               <p
-                className={`${isActive && "text-white"} text-xl ${
-                  dark && "text-white"
-                }`}
-              >
+                className={`${isActive && 'text-white'} text-xl ${
+                  dark && 'text-white'
+                }`}>
                 {link.icon}
               </p>
               <p
-                className={`w-1/2 ${isActive && "text-white"} ${
-                  dark && "text-white"
-                }`}
-              >
+                className={`w-1/2 ${isActive && 'text-white'} ${
+                  dark && 'text-white'
+                }`}>
                 {link.title}
               </p>
             </div>

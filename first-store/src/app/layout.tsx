@@ -1,9 +1,9 @@
-import type { Metadata } from "next";
-import "@/styles/globals.css";
+import type { Metadata } from 'next';
+import '@/styles/globals.css';
 
 export const metadata: Metadata = {
-  title: "My First Store",
-  description: "the first store that I want to build with nextJS and TS",
+  title: 'My First Store',
+  description: 'the first store that I want to build with nextJS and TS',
 };
 
 export default function RootLayout({
