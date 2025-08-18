@@ -17,13 +17,16 @@ const NavMenu = () => {
       <div
         className={`absolute top-12 flex min-w-44 flex-col gap-1 rounded-xl bg-gray-300 py-4 ${
           dark && 'bg-gray-900'
-        } ${!showMenu && 'hidden'} transition duration-500`}
+        } ${!showMenu && 'hidden'} z-10 transition duration-500`}
       >
         {listOfNavLinks.map((link) => {
           const isActive = activePage === link.link;
           return (
             <Link
-              onClick={() => setActivePage(link.link)}
+              onClick={() => {
+                setActivePage(link.link);
+                setShowMenu(false);
+              }}
               href={link.link}
               key={link.link}
               className={`mx-auto flex w-3/4 items-center justify-center gap-2 rounded-xl py-1 ${

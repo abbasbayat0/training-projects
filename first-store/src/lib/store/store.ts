@@ -3,7 +3,7 @@ import { Store } from '../types/types';
 
 const store = create<Store>()((set) => ({
   dark: false,
-  activePage: '/',
+  activePage: window.location.pathname,
   setTheme: () => set((state) => ({ dark: !state.dark })),
   setActivePage: (newItem) => set(() => ({ activePage: newItem })),
 }));
