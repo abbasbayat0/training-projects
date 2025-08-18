@@ -7,7 +7,7 @@ import { CiViewList } from 'react-icons/ci';
 
 const listOfNavLinks = [
   { title: 'Home', icon: <IoHomeOutline />, link: '/' },
-  { title: 'Product', icon: <AiOutlineProduct />, link: '/product' },
+  { title: 'Products', icon: <AiOutlineProduct />, link: '/products' },
   { title: 'Cart', icon: <IoCartOutline />, link: '/cart' },
   { title: 'About', icon: <IoPersonAddOutline />, link: '/about' },
   { title: 'CheckOut', icon: <IoBagCheckOutline />, link: '/checkout' },
