@@ -10,7 +10,7 @@ const MainSlider = () => {
       <section
         className={`flex w-full items-center justify-start gap-3 overflow-scroll scroll-smooth rounded-xl px-4 py-5 ${
           dark ? 'bg-gray-600' : 'bg-gray-700'
-        }`}
+        } transition duration-500`}
       >
         {images.map((image) => {
           return (

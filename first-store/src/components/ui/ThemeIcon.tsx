@@ -12,7 +12,7 @@ const ThemeIcon = () => {
         <IoSunny
           className={`${
             dark ? 'text-2xl text-white opacity-80' : 'text-2xl opacity-80'
-          } cursor-pointer`}
+          } cursor-pointer transition duration-500`}
           onClick={() => setTheme()}
         />
       ) : (

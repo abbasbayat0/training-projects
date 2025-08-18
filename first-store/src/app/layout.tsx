@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import '@/styles/globals.css';
+import Navbar from '@/components/shared/Navbar';
+import UserLine from '@/components/shared/UserLine';
 
 export const metadata: Metadata = {
   title: 'My First Store',
@@ -13,7 +15,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body>{children}</body>
+      <body>
+        <header>
+          <UserLine />
+          <Navbar />
+        </header>
+        {children}
+      </body>
     </html>
   );
 }

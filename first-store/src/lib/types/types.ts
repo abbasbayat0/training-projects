@@ -1,6 +1,8 @@
 export type Store = {
   dark: boolean;
+  activePage: string;
   setTheme: () => void;
+  setActivePage: (newItem: string) => void;
 };
 
 export type Product = {

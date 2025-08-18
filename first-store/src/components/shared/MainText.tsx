@@ -6,10 +6,14 @@ const MainText = () => {
   return (
     <article className={`p-5 sm:w-2/3`}>
       <section className='align-center mt-5 flex max-w-7xl flex-col justify-start gap-5 sm:gap-8'>
-        <h1 className={`text-4xl font-bold opacity-70 sm:text-5xl ${dark && 'text-white'}`}>
+        <h1
+          className={`text-4xl font-bold opacity-70 sm:text-5xl ${dark && 'text-white'} transition duration-500`}
+        >
           We are changing the way people shop
         </h1>
-        <p className={`text-sm opacity-70 sm:text-base ${dark && 'text-white'}`}>
+        <p
+          className={`text-sm opacity-70 sm:text-base ${dark && 'text-white'} transition duration-500`}
+        >
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatem nesciunt voluptatum,
           exercitationem nisi iusto maiores distinctio, repellat dignissimos officiis velit
           perspiciatis. Rerum animi facere culpa eos porro exercitationem. Ab, tempore?
@@ -17,7 +21,7 @@ const MainText = () => {
         <button
           className={`w-auto max-w-36 rounded-xl p-2 py-3 text-sm text-nowrap text-white opacity-90 ${
             dark ? 'bg-pink-600' : 'bg-blue-600'
-          }`}
+          } transition duration-500`}
         >
           OUR PRODUCTS
         </button>
