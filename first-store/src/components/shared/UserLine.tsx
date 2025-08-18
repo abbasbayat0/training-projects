@@ -1,5 +1,6 @@
 'use client';
 import store from '@/lib/store/store';
+import Link from 'next/link';
 
 const UserLine = () => {
   const { dark } = store();
@@ -8,12 +9,18 @@ const UserLine = () => {
       <section
         className={`${dark ? 'bg-gray-600' : 'bg-gray-800'} mx-auto flex justify-center gap-5 py-2 transition duration-500`}
       >
-        <p className='cursor-pointer text-xs font-thin text-white opacity-80 select-none hover:underline sm:text-[14px]'>
+        <Link
+          href='/login'
+          className='cursor-pointer text-xs font-thin text-white opacity-80 select-none hover:underline sm:text-[14px]'
+        >
           Sign In / Guest
-        </p>
-        <p className='cursor-pointer text-xs font-thin text-white opacity-80 select-none hover:underline sm:text-[14px]'>
+        </Link>
+        <Link
+          href='/register'
+          className='cursor-pointer text-xs font-thin text-white opacity-80 select-none hover:underline sm:text-[14px]'
+        >
           Create Account
-        </p>
+        </Link>
       </section>
     </article>
   );

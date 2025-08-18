@@ -13,7 +13,7 @@ const NavLinks = () => {
             onClick={() => setActivePage(item.link)}
             href={item.link}
             key={item.link}
-            className={`cursor-pointer rounded-xl p-2 text-sm select-none ${
+            className={`cursor-pointer rounded-xl p-2 px-3 text-sm select-none ${
               dark && 'text-white'
             } ${isActive && 'bg-gray-700 text-white'} transition duration-500`}
           >
