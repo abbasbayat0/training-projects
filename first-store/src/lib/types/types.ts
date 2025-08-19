@@ -28,4 +28,4 @@ export type ProductCart = {
   };
 };
 
-export type SingleProduct = { params: { id: number } };
+export type SingleProduct = { id: number };
