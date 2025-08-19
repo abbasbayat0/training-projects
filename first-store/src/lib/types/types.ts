@@ -17,6 +17,7 @@ export type Product = {
 };
 
 export type ProductCart = {
+  id: number;
   dark: boolean;
   attributes: {
     title: string;
@@ -26,3 +27,5 @@ export type ProductCart = {
     price: string;
   };
 };
+
+export type SingleProduct = { params: { id: number } };

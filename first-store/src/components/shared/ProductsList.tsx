@@ -16,7 +16,7 @@ const ProductsList = () => {
       ) : (
         <div className={`flex w-full flex-col flex-wrap gap-10 p-5 pt-10 sm:flex-row lg:gap-12`}>
           {products.map(({ id, attributes }) => (
-            <ProductCart key={id} dark={dark} attributes={attributes} />
+            <ProductCart key={id} id={id} dark={dark} attributes={attributes} />
           ))}
         </div>
       )}

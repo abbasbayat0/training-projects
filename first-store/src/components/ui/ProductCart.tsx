@@ -1,7 +1,8 @@
 'use client';
 import type { ProductCart } from '@/lib/types/types';
+import Link from 'next/link';
 
-const ProductCart = ({ dark, attributes }: ProductCart) => {
+const ProductCart = ({ id, dark, attributes }: ProductCart) => {
   const formatted = (amount: number) => {
     return new Intl.NumberFormat('en-US', {
       style: 'currency',
@@ -9,7 +10,8 @@ const ProductCart = ({ dark, attributes }: ProductCart) => {
     }).format(amount);
   };
   return (
-    <div
+    <Link
+      href={`/products/${id}`}
       className={`mx-auto flex flex-col items-center justify-center rounded-xl p-5 shadow-xl transition duration-500 hover:shadow-2xl ${dark && 'bg-gray-600'} transition duration-500`}
     >
       <div className='flex h-60 w-54 items-center justify-center overflow-hidden rounded-xl lg:h-64 lg:w-60'>
@@ -27,7 +29,7 @@ const ProductCart = ({ dark, attributes }: ProductCart) => {
           {formatted(Number(attributes.price))}
         </p>
       </div>
-    </div>
+    </Link>
   );
 };
 
