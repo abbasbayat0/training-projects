@@ -15,3 +15,14 @@ export type Product = {
     price: string;
   };
 };
+
+export type ProductCart = {
+  dark: boolean;
+  attributes: {
+    title: string;
+    company: string;
+    description: string;
+    image: string;
+    price: string;
+  };
+};
