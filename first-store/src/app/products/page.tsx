@@ -8,7 +8,7 @@ const page = () => {
   const { dark } = store();
   return (
     <QueryClientProvider client={queryClient}>
-      <div className={`${dark && 'bg-gray-700'} min-h-screen`}>
+      <div className={`${dark && 'bg-gray-700'} min-h-screen transition duration-500`}>
         <ProductsList />
       </div>
     </QueryClientProvider>
