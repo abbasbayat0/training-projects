@@ -3,10 +3,13 @@ import { Product } from '@/lib/types/types';
 import store from '@/lib/store/store';
 import ProductCart from '../ui/ProductCart';
 import { useState } from 'react';
+import ShowIcons from '../ui/ShowIcons';
+import ProductGrid from '../ui/ProductGrid';
 
 const ProductsList = () => {
+  const [showMode, setShowMode] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
-  const { status, data, refetch } = useFetchProducts(currentPage);
+  const { status, data } = useFetchProducts(currentPage);
   const { dark } = store();
   let products: Product[] = [];
   if (status === 'success') products = [...data?.data.data];
@@ -21,17 +24,24 @@ const ProductsList = () => {
         <h1 className={`${dark && 'text-white'} pt-5 transition duration-500`}>Loading Data ...</h1>
       ) : (
         <div className={`w-full`}>
-          <div className={`mx-10 mt-10 flex flex-col`}>
-            <p className={`${dark && 'text-white'} transition duration-500`}>
-              {metaData.pagination.total} Product
-            </p>
-            <div className={`mx-auto mt-3 h-[1px] w-full border bg-black opacity-20 shadow`}></div>
+          <div className={`mx-10 mt-10 flex items-center justify-between`}>
+            <div className={`flex flex-col`}>
+              <p className={`${dark && 'text-white'} transition duration-500`}>
+                {metaData.pagination.total} Product
+              </p>
+            </div>
+            <ShowIcons showMode={showMode} setShowMode={setShowMode} />
           </div>
+          <div className={`mx-auto mt-3 h-[1px] w-11/12 border bg-black opacity-20 shadow`}></div>
 
           <div className={`flex w-full flex-col flex-wrap gap-10 p-5 pt-10 sm:flex-row lg:gap-12`}>
-            {products.map(({ id, attributes }) => (
-              <ProductCart key={id} id={id} dark={dark} attributes={attributes} />
-            ))}
+            {products.map(({ id, attributes }) =>
+              showMode ? (
+                <ProductCart key={id} id={id} dark={dark} attributes={attributes} />
+              ) : (
+                <ProductGrid key={id} id={id} dark={dark} attributes={attributes} />
+              ),
+            )}
           </div>
         </div>
       )}

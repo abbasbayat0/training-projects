@@ -1,3 +1,5 @@
+import { Dispatch, SetStateAction } from 'react';
+
 export type Store = {
   dark: boolean;
   activePage: string;
@@ -29,3 +31,8 @@ export type ProductCart = {
 };
 
 export type SingleProduct = { id: number };
+
+export type ShowIconMode = {
+  showMode: boolean;
+  setShowMode: Dispatch<SetStateAction<boolean>>;
+};
