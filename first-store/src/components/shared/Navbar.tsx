@@ -14,7 +14,7 @@ const Navbar = () => {
         <Link
           href='/'
           className={`${
-            dark ? 'bg-pink-700' : 'bg-blue-600'
+            dark ? 'bg-pink-600' : 'bg-blue-600'
           } hidden h-10 min-w-10 cursor-pointer items-center justify-center rounded-xl text-2xl font-bold text-white opacity-90 transition duration-500 select-none sm:flex`}
         >
           C

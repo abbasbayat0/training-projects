@@ -1,14 +1,9 @@
 'use client';
 import type { ProductCart } from '@/lib/types/types';
+import formatted from '@/lib/utils/formatPrice';
 import Link from 'next/link';
 
 const ProductGrid = ({ id, dark, attributes }: ProductCart) => {
-  const formatted = (amount: number) => {
-    return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD',
-    }).format(amount);
-  };
   return (
     <Link
       href={`/products/${id}`}

@@ -1,10 +1,11 @@
 'use client';
-import SinglePro from '@/components/shared/SingleProduct';
-import type { SingleProduct } from '@/lib/types/types';
-const page = ({ id }: SingleProduct) => {
+import SingleProduct from '@/components/shared/SingleProduct';
+import store from '@/lib/store/store';
+const page = () => {
+  const { dark } = store();
   return (
-    <div>
-      <SinglePro id={id} />
+    <div className={`${dark && 'bg-gray-700'} min-h-screen transition duration-500`}>
+      <SingleProduct />
     </div>
   );
 };

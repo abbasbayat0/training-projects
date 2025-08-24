@@ -21,7 +21,9 @@ const ProductsList = () => {
   return (
     <div className={`mx-auto flex max-w-7xl flex-col items-center justify-center`}>
       {products.length === 0 ? (
-        <h1 className={`${dark && 'text-white'} pt-5 transition duration-500`}>Loading Data ...</h1>
+        <div
+          className={`${dark && 'border-white'} mt-10 animate-ping rounded-full border-2 p-2 transition duration-500`}
+        ></div>
       ) : (
         <div className={`w-full`}>
           <div className={`mx-10 mt-10 flex items-center justify-between`}>

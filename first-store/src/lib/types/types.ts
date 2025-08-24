@@ -30,9 +30,19 @@ export type ProductCart = {
   };
 };
 
-export type SingleProduct = { id: number };
-
 export type ShowIconMode = {
   showMode: boolean;
   setShowMode: Dispatch<SetStateAction<boolean>>;
+};
+
+export type SingleProduct = {
+  id?: number;
+  attributes?: {
+    title: string;
+    company: string;
+    description: string;
+    image: string;
+    price: string;
+    colors: string[];
+  };
 };

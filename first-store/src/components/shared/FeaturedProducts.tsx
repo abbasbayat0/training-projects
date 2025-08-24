@@ -28,9 +28,9 @@ const FeaturedProducts = () => {
       <div className={`mx-auto mt-3 h-[1px] w-full border bg-black opacity-20 shadow`}></div>
       <div>
         {products.length === 0 ? (
-          <h1 className={`${dark && 'text-white'} mt-5 transition duration-500`}>
-            Loading Data ...
-          </h1>
+          <div
+            className={`${dark && 'border-white'} mt-10 animate-ping rounded-full border-2 p-2 transition duration-500`}
+          ></div>
         ) : (
           <div className={`flex w-full flex-col flex-wrap gap-10 p-5 pt-10 sm:flex-row lg:gap-12`}>
             {products.map(({ id, attributes }) => (
