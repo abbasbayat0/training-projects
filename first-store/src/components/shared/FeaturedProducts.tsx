@@ -4,12 +4,19 @@ import useFetchFeatured from '@/lib/hooks/useFetchFeatured';
 import store from '@/lib/store/store';
 import { Product } from '@/lib/types/types';
 import ProductCart from '../ui/ProductCart';
+// import getFeatured from '@/lib/actions/action';
 
 const FeaturedProducts = () => {
   const { dark } = store();
   const { status, data } = useFetchFeatured();
   let products: Product[] = [];
   if (status === 'success') products = [...data?.data.data];
+
+  // const featured = async () => {
+  //   const products = await getFeatured();
+  //   console.log(products);
+  // };
+  // featured();
 
   return (
     <div className='mx-auto flex max-w-7xl flex-col items-center justify-center p-5'>
