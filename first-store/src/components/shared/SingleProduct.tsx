@@ -4,16 +4,18 @@ import store from '@/lib/store/store';
 import type { SingleProduct } from '@/lib/types/types';
 import formatted from '@/lib/utils/formatPrice';
 import { useParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 const SingleProduct = () => {
   const { id } = useParams();
   const { dark } = store();
+  const selectOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
   const { status, data } = useFetchSingleProduct(Number(id));
   let product: SingleProduct = {};
   const [activeColor, setActiveColor] = useState<string | undefined>();
   if (status === 'success') {
     product = data?.data.data;
+    if (activeColor === undefined) setActiveColor(product.attributes?.colors[0]);
   }
   return (
     <div className='mt-16 flex flex-col px-5'>
@@ -48,7 +50,6 @@ const SingleProduct = () => {
             <div className='mt-2 flex justify-center gap-2'>
               {product.attributes?.colors.map((color, index) => {
                 const active = activeColor === color;
-                console.log(active);
                 return (
                   <div
                     onClick={() => {
@@ -56,13 +57,33 @@ const SingleProduct = () => {
                     }}
                     key={index}
                     style={{ backgroundColor: color }}
-                    className={`h-5 w-5 rounded-full ${active && 'border-blue-500'}`}
+                    className={`h-5 w-5 rounded-full ${active && 'scale-110 border-2 border-blue-800'}`}
                   ></div>
                 );
               })}
             </div>
-            <div></div>
-            <button></button>
+            <div className='flex flex-col items-center justify-center'>
+              <p className={`mt-5 text-center font-bold tracking-widest opacity-90`}>Amount</p>
+              <div
+                className={`mt-2 flex w-10/12 items-center justify-center rounded-xl border border-blue-500 px-5 py-2`}
+              >
+                <select name='amount' id='amount' className='w-full focus:outline-none'>
+                  {selectOptions.map((item) => {
+                    return (
+                      <option key={item} value={item}>
+                        {item}
+                      </option>
+                    );
+                  })}
+                </select>
+              </div>
+              <button
+                style={{ backgroundColor: activeColor }}
+                className={`mx-auto my-10 rounded-xl px-5 py-2 font-bold tracking-wide shadow-xl`}
+              >
+                <p className={`text-gray-400 opacity-90`}>ADD TO BAG</p>
+              </button>
+            </div>
           </div>
         </>
       ) : (
