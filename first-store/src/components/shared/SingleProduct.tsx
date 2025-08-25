@@ -18,11 +18,11 @@ const SingleProduct = () => {
     if (activeColor === undefined) setActiveColor(product.attributes?.colors[0]);
   }
   return (
-    <div className='mt-16 flex flex-col px-5'>
+    <div className='flex flex-col px-5 pt-16'>
       {status === 'success' && product.id === Number(id) ? (
         <>
           <div>
-            <p className='text-sm opacity-70'>Home &gt; Products</p>
+            <p className={`text-sm opacity-70 ${dark && 'text-white'}`}>Home &gt; Products</p>
             <img
               src={product.attributes?.image}
               alt={product.attributes?.title}
@@ -31,22 +31,26 @@ const SingleProduct = () => {
           </div>
           <div className='mt-5'>
             <h1
-              className={`mx-auto text-center text-3xl font-bold text-gray-800 capitalize opacity-80`}
+              className={`mx-auto text-center text-3xl font-bold text-gray-800 capitalize opacity-80 ${dark && 'text-white'}`}
             >
               {product.attributes?.title}
             </h1>
             <h2
-              className={`mt-1 text-center font-bold tracking-wider text-gray-800 capitalize opacity-50`}
+              className={`mt-1 text-center font-bold tracking-wider text-gray-800 capitalize opacity-50 ${dark && 'text-white'}`}
             >
               {product.attributes?.company}
             </h2>
-            <p className={`text-center text-xl font-light opacity-80`}>
+            <p className={`text-center text-xl font-light opacity-80 ${dark && 'text-white'}`}>
               {formatted(Number(product.attributes?.price))}
             </p>
-            <p className={`mx-2 mt-5 text-center tracking-wide opacity-70`}>
+            <p className={`mx-2 mt-5 text-center tracking-wide opacity-70 ${dark && 'text-white'}`}>
               {product.attributes?.description}
             </p>
-            <p className={`mt-5 text-center font-bold tracking-widest opacity-90`}>Colors</p>
+            <p
+              className={`mt-5 text-center font-bold tracking-widest opacity-90 ${dark && 'text-white'}`}
+            >
+              Colors
+            </p>
             <div className='mt-2 flex justify-center gap-2'>
               {product.attributes?.colors.map((color, index) => {
                 const active = activeColor === color;
@@ -57,17 +61,25 @@ const SingleProduct = () => {
                     }}
                     key={index}
                     style={{ backgroundColor: color }}
-                    className={`h-5 w-5 rounded-full ${active && 'scale-110 border-2 border-blue-800'}`}
+                    className={`h-5 w-5 rounded-full ${active && 'scale-110 border-2 border-blue-800'} cursor-pointer`}
                   ></div>
                 );
               })}
             </div>
             <div className='flex flex-col items-center justify-center'>
-              <p className={`mt-5 text-center font-bold tracking-widest opacity-90`}>Amount</p>
-              <div
-                className={`mt-2 flex w-10/12 items-center justify-center rounded-xl border border-blue-500 px-5 py-2`}
+              <p
+                className={`mt-5 text-center font-bold tracking-widest opacity-90 ${dark && 'text-white'}`}
               >
-                <select name='amount' id='amount' className='w-full focus:outline-none'>
+                Amount
+              </p>
+              <div
+                className={`mt-2 flex w-10/12 items-center justify-center rounded-xl border border-blue-500 px-5 py-2 ${dark && 'bg-gray-400'}`}
+              >
+                <select
+                  name='amount'
+                  id='amount'
+                  className={`w-full cursor-pointer focus:outline-none`}
+                >
                   {selectOptions.map((item) => {
                     return (
                       <option key={item} value={item}>
@@ -79,9 +91,13 @@ const SingleProduct = () => {
               </div>
               <button
                 style={{ backgroundColor: activeColor }}
-                className={`mx-auto my-10 rounded-xl px-5 py-2 font-bold tracking-wide shadow-xl`}
+                className={`mx-auto my-10 cursor-pointer rounded-xl px-5 py-2 font-bold tracking-wide shadow-xl`}
               >
-                <p className={`text-gray-400 opacity-90`}>ADD TO BAG</p>
+                <p
+                  className={`text-gray-400 opacity-80 ${dark && 'text-pink-500'} text-shadow-black text-shadow-xs`}
+                >
+                  ADD TO BAG
+                </p>
               </button>
             </div>
           </div>
