@@ -1,15 +1,16 @@
 'use client';
 import listOfNavLinks from '@/assets/listOfNavLinks';
+import { setActivePage } from '@/lib/features/activePageSlice';
 import { RootState } from '@/lib/store/store';
-import store from '@/lib/store/storev';
 import Link from 'next/link';
 import { useState } from 'react';
 import { HiOutlineMenuAlt1 } from 'react-icons/hi';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 const NavMenu = () => {
   const [showMenu, setShowMenu] = useState(false);
-  const { activePage, setActivePage } = store();
+  const activePage = useSelector((state: RootState) => state.activePage.activePage);
+  const dispatch = useDispatch();
   const dark = useSelector((state: RootState) => state.theme.dark);
 
   return (
@@ -28,7 +29,7 @@ const NavMenu = () => {
           return (
             <Link
               onClick={() => {
-                setActivePage(link.link);
+                dispatch(setActivePage(link.link));
                 setShowMenu(false);
               }}
               href={link.link}

@@ -1,9 +1,13 @@
 'use client';
+import { RootState } from '@/lib/store/store';
 import store from '@/lib/store/storev';
 import Link from 'next/link';
+import { useSelector } from 'react-redux';
 
 const MainText = () => {
-  const { dark, setActivePage } = store();
+  const { setActivePage } = store();
+  const dark = useSelector((state: RootState) => state.theme.dark);
+
   return (
     <article className={`p-5 sm:w-2/3`}>
       <section className='align-center mt-5 flex max-w-7xl flex-col justify-start gap-5 sm:gap-8'>

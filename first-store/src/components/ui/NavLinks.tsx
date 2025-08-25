@@ -1,11 +1,12 @@
 import listOfNavLinks from '@/assets/listOfNavLinks';
+import { setActivePage } from '@/lib/features/activePageSlice';
 import { RootState } from '@/lib/store/store';
-import store from '@/lib/store/storev';
 import Link from 'next/link';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 const NavLinks = () => {
-  const { activePage, setActivePage } = store();
+  const activePage = useSelector((state: RootState) => state.activePage.activePage);
+  const dispatch = useDispatch();
   const dark = useSelector((state: RootState) => state.theme.dark);
 
   return (
@@ -14,7 +15,7 @@ const NavLinks = () => {
         const isActive = activePage === item.link;
         return (
           <Link
-            onClick={() => setActivePage(item.link)}
+            onClick={() => dispatch(setActivePage(item.link))}
             href={item.link}
             key={item.link}
             className={`cursor-pointer rounded-xl p-2 px-3 text-sm select-none ${

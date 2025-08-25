@@ -2,7 +2,7 @@
 import { FaMoon } from 'react-icons/fa6';
 import { IoSunny } from 'react-icons/io5';
 import { useDispatch, useSelector } from 'react-redux';
-import { toggle } from '@/lib/features/theme/themeSlice';
+import { toggle } from '@/lib/features/themeSlice';
 import { RootState } from '@/lib/store/store';
 
 const ThemeIcon = () => {
