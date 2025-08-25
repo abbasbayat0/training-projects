@@ -1,6 +1,6 @@
 import useFetchProducts from '@/lib/hooks/useFetchProducts';
 import { Product } from '@/lib/types/types';
-import store from '@/lib/store/store';
+import store from '@/lib/store/storev';
 import ProductCart from '../ui/ProductCart';
 import { useState } from 'react';
 import ShowIcons from '../ui/ShowIcons';

@@ -1,8 +1,9 @@
 'use client';
-import store from '@/lib/store/store';
+import store from '@/lib/store/storev';
+import Link from 'next/link';
 
 const MainText = () => {
-  const { dark } = store();
+  const { dark, setActivePage } = store();
   return (
     <article className={`p-5 sm:w-2/3`}>
       <section className='align-center mt-5 flex max-w-7xl flex-col justify-start gap-5 sm:gap-8'>
@@ -18,13 +19,15 @@ const MainText = () => {
           exercitationem nisi iusto maiores distinctio, repellat dignissimos officiis velit
           perspiciatis. Rerum animi facere culpa eos porro exercitationem. Ab, tempore?
         </p>
-        <button
+        <Link
+          onClick={() => setActivePage('/products')}
+          href='/products'
           className={`w-auto max-w-36 rounded-xl p-2 py-3 text-sm text-nowrap text-white opacity-90 ${
             dark ? 'bg-pink-600' : 'bg-blue-600'
-          } transition duration-500`}
+          } cursor-pointer text-center transition duration-500 select-none`}
         >
           OUR PRODUCTS
-        </button>
+        </Link>
       </section>
     </article>
   );

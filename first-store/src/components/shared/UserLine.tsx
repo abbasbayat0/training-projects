@@ -1,9 +1,10 @@
 'use client';
-import store from '@/lib/store/store';
+import { RootState } from '@/lib/store/store';
 import Link from 'next/link';
+import { useSelector } from 'react-redux';
 
 const UserLine = () => {
-  const { dark } = store();
+  const dark = useSelector((state: RootState) => state.theme.dark);
   return (
     <article className={`${dark ? 'bg-gray-900' : 'bg-gray-200'} transition duration-500`}>
       <section

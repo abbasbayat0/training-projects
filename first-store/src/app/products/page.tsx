@@ -1,6 +1,6 @@
 'use client';
 import ProductsList from '@/components/shared/ProductsList';
-import store from '@/lib/store/store';
+import store from '@/lib/store/storev';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 const page = () => {

@@ -1,16 +1,11 @@
-import { create } from 'zustand';
-import { Store } from '../types/types';
+import { configureStore } from '@reduxjs/toolkit';
+import themeReducer from '../features/theme/themeSlice';
 
-const store = create<Store>()((set) => ({
-  dark: Boolean(JSON.parse(localStorage.getItem('theme') as string)) || false,
-  activePage: window.location.pathname,
-  setTheme: () =>
-    set((state) => {
-      const newTheme = !state.dark;
-      localStorage.setItem('theme', JSON.stringify(newTheme));
-      return { dark: newTheme };
-    }),
-  setActivePage: (newItem) => set(() => ({ activePage: newItem })),
-}));
+export const store = configureStore({
+  reducer: {
+    theme: themeReducer,
+  },
+});
 
-export default store;
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;

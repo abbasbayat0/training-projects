@@ -1,6 +1,6 @@
 'use client';
 import SingleProduct from '@/components/shared/SingleProduct';
-import store from '@/lib/store/store';
+import store from '@/lib/store/storev';
 const page = () => {
   const { dark } = store();
   return (

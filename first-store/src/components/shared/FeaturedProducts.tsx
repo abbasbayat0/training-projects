@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 'use client';
 import useFetchFeatured from '@/lib/hooks/useFetchFeatured';
-import store from '@/lib/store/store';
+import store from '@/lib/store/storev';
 import { Product } from '@/lib/types/types';
 import ProductCart from '../ui/ProductCart';
 // import getFeatured from '@/lib/actions/action';

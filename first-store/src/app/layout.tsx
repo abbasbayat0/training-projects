@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import '@/styles/globals.css';
 import Navbar from '@/components/shared/Navbar';
 import UserLine from '@/components/shared/UserLine';
+import LayoutProvider from '../components/shared/LayoutProvider';
 
 export const metadata: Metadata = {
   title: 'My First Store',
@@ -17,10 +18,12 @@ export default function RootLayout({
     <html lang='en'>
       <body>
         <header>
-          <UserLine />
-          <Navbar />
+          <LayoutProvider>
+            <UserLine />
+            <Navbar />
+          </LayoutProvider>
         </header>
-        {children}
+        <LayoutProvider>{children}</LayoutProvider>
       </body>
     </html>
   );

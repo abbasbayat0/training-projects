@@ -1,13 +1,14 @@
 'use client';
 import { MdOutlineShoppingCart } from 'react-icons/md';
 import ThemeIcon from '../ui/ThemeIcon';
-import store from '@/lib/store/store';
 import NavMenu from '../ui/NavMenu';
 import NavLinks from '../ui/NavLinks';
 import Link from 'next/link';
+import { useSelector } from 'react-redux';
+import { RootState } from '@/lib/store/store';
 
 const Navbar = () => {
-  const { dark } = store();
+  const dark = useSelector((state: RootState) => state.theme.dark);
   return (
     <article className={`${dark ? 'bg-gray-900' : 'bg-gray-200'} transition duration-500`}>
       <section className='mx-auto flex max-w-7xl justify-between px-3 py-2'>

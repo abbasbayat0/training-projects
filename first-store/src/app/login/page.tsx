@@ -1,5 +1,5 @@
 'use client';
-import store from '@/lib/store/store';
+import store from '@/lib/store/storev';
 import Link from 'next/link';
 
 const page = () => {

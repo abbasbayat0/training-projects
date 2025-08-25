@@ -1,16 +1,20 @@
 'use client';
 import useFetchSingleProduct from '@/lib/hooks/useFetchSingleProduct';
-import store from '@/lib/store/store';
 import type { SingleProduct } from '@/lib/types/types';
 import formatted from '@/lib/utils/formatPrice';
 import { useParams } from 'next/navigation';
 import { useState } from 'react';
 import Link from 'next/link';
+import { useSelector } from 'react-redux';
+import { RootState } from '@/lib/store/store';
 
 const SingleProduct = () => {
+  const dark = useSelector((state: RootState) => state.theme.dark);
+
   const { id } = useParams();
-  const { dark } = store();
+  // const { addToCart } = store();
   const selectOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+  const [amount, setAmount] = useState(1);
   const { status, data } = useFetchSingleProduct(Number(id));
   let product: SingleProduct = {};
   const [activeColor, setActiveColor] = useState<string | undefined>();
@@ -23,7 +27,9 @@ const SingleProduct = () => {
       {status === 'success' && product.id === Number(id) ? (
         <>
           <div>
-            <p className={`text-sm opacity-70 ${dark && 'text-white'} sm:ml-10 transition duration-500`}>
+            <p
+              className={`text-sm opacity-70 ${dark && 'text-white'} transition duration-500 sm:ml-10`}
+            >
               <Link href='/' className='cursor-pointer hover:underline'>
                 Home
               </Link>{' '}
@@ -35,7 +41,7 @@ const SingleProduct = () => {
             <img
               src={product.attributes?.image}
               alt={product.attributes?.title}
-              className='mx-auto mt-5 w-11/12 max-w-md rounded-xl md:max-w-sm'
+              className='mx-auto mt-5 w-11/12 max-w-md rounded-xl'
             />
           </div>
           <div className='mt-5 md:w-1/2'>
@@ -49,10 +55,14 @@ const SingleProduct = () => {
             >
               {product.attributes?.company}
             </h2>
-            <p className={`text-center text-xl font-light opacity-80 ${dark && 'text-white'} transition duration-500`}>
+            <p
+              className={`text-center text-xl font-light opacity-80 ${dark && 'text-white'} transition duration-500`}
+            >
               {formatted(Number(product.attributes?.price))}
             </p>
-            <p className={`mx-2 mt-5 text-center tracking-wide opacity-70 ${dark && 'text-white'} transition duration-500`}>
+            <p
+              className={`mx-2 mt-5 text-center tracking-wide opacity-70 ${dark && 'text-white'} transition duration-500`}
+            >
               {product.attributes?.description}
             </p>
             <p
@@ -85,6 +95,9 @@ const SingleProduct = () => {
                 className={`mt-2 flex w-10/12 items-center justify-center rounded-xl border border-blue-500 px-5 py-2 ${dark && 'bg-gray-400'} transition duration-500`}
               >
                 <select
+                  onChange={(e) => {
+                    setAmount(Number(e.target.value));
+                  }}
                   name='amount'
                   id='amount'
                   className={`w-full cursor-pointer focus:outline-none`}
@@ -99,11 +112,14 @@ const SingleProduct = () => {
                 </select>
               </div>
               <button
+                // onClick={() => {
+                //   addToCart(product, amount);
+                // }}
                 style={{ backgroundColor: activeColor }}
                 className={`mx-auto my-10 cursor-pointer rounded-xl px-5 py-2 font-bold tracking-wide shadow-xl`}
               >
                 <p
-                  className={`text-gray-400 opacity-80 ${dark && 'text-white'} text-shadow-black text-shadow-xs transition duration-500`}
+                  className={`text-gray-400 opacity-80 ${dark && 'text-white'} transition duration-500 text-shadow-black text-shadow-xs`}
                 >
                   ADD TO BAG
                 </p>

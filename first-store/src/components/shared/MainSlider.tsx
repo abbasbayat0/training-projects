@@ -1,6 +1,6 @@
 'use client';
 import images from '@/assets/sliderImages';
-import store from '@/lib/store/store';
+import store from '@/lib/store/storev';
 import Image from 'next/image';
 
 const MainSlider = () => {

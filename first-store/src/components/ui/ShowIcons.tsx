@@ -2,7 +2,7 @@
 import { IoGridOutline } from 'react-icons/io5';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import type { ShowIconMode } from '@/lib/types/types';
-import store from '@/lib/store/store';
+import store from '@/lib/store/storev';
 
 const ShowIcons = ({ showMode, setShowMode }: ShowIconMode) => {
   const { dark } = store();

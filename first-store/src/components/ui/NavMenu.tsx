@@ -1,13 +1,17 @@
 'use client';
 import listOfNavLinks from '@/assets/listOfNavLinks';
-import store from '@/lib/store/store';
+import { RootState } from '@/lib/store/store';
+import store from '@/lib/store/storev';
 import Link from 'next/link';
 import { useState } from 'react';
 import { HiOutlineMenuAlt1 } from 'react-icons/hi';
+import { useSelector } from 'react-redux';
 
 const NavMenu = () => {
   const [showMenu, setShowMenu] = useState(false);
-  const { dark, activePage, setActivePage } = store();
+  const { activePage, setActivePage } = store();
+  const dark = useSelector((state: RootState) => state.theme.dark);
+
   return (
     <div className='relative sm:hidden'>
       <HiOutlineMenuAlt1

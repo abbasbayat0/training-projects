@@ -1,5 +1,5 @@
 'use client';
-import store from '@/lib/store/store';
+import store from '@/lib/store/storev';
 
 const page = () => {
   const { dark } = store();

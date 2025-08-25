@@ -1,9 +1,13 @@
 import listOfNavLinks from '@/assets/listOfNavLinks';
-import store from '@/lib/store/store';
+import { RootState } from '@/lib/store/store';
+import store from '@/lib/store/storev';
 import Link from 'next/link';
+import { useSelector } from 'react-redux';
 
 const NavLinks = () => {
-  const { dark, activePage, setActivePage } = store();
+  const { activePage, setActivePage } = store();
+  const dark = useSelector((state: RootState) => state.theme.dark);
+
   return (
     <div className='hidden w-full gap-2 sm:flex sm:items-center sm:justify-between lg:mr-10'>
       {listOfNavLinks.map((item) => {

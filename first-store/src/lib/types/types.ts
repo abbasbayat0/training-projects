@@ -3,6 +3,8 @@ import { Dispatch, SetStateAction } from 'react';
 export type Store = {
   dark: boolean;
   activePage: string;
+  cart: SingleProduct[];
+  addToCart: (newItem: SingleProduct, amount: number) => void;
   setTheme: () => void;
   setActivePage: (newItem: string) => void;
 };
@@ -15,6 +17,7 @@ export type Product = {
     description: string;
     image: string;
     price: string;
+    colors: string[];
   };
 };
 
@@ -43,6 +46,7 @@ export type SingleProduct = {
     description: string;
     image: string;
     price: string;
+    amount: number;
     colors: string[];
   };
 };
