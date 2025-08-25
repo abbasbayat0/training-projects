@@ -5,6 +5,7 @@ import type { SingleProduct } from '@/lib/types/types';
 import formatted from '@/lib/utils/formatPrice';
 import { useParams } from 'next/navigation';
 import { useState } from 'react';
+import Link from 'next/link';
 
 const SingleProduct = () => {
   const { id } = useParams();
@@ -18,36 +19,44 @@ const SingleProduct = () => {
     if (activeColor === undefined) setActiveColor(product.attributes?.colors[0]);
   }
   return (
-    <div className='flex flex-col px-5 pt-16'>
+    <div className='flex flex-col px-5 pt-16 md:flex-row md:justify-around md:pb-16'>
       {status === 'success' && product.id === Number(id) ? (
         <>
           <div>
-            <p className={`text-sm opacity-70 ${dark && 'text-white'}`}>Home &gt; Products</p>
+            <p className={`text-sm opacity-70 ${dark && 'text-white'} sm:ml-10 transition duration-500`}>
+              <Link href='/' className='cursor-pointer hover:underline'>
+                Home
+              </Link>{' '}
+              &gt;{' '}
+              <Link href='/products' className='cursor-pointer hover:underline'>
+                Products
+              </Link>
+            </p>
             <img
               src={product.attributes?.image}
               alt={product.attributes?.title}
-              className='mx-auto mt-5 w-11/12 max-w-md rounded-xl'
+              className='mx-auto mt-5 w-11/12 max-w-md rounded-xl md:max-w-sm'
             />
           </div>
-          <div className='mt-5'>
+          <div className='mt-5 md:w-1/2'>
             <h1
-              className={`mx-auto text-center text-3xl font-bold text-gray-800 capitalize opacity-80 ${dark && 'text-white'}`}
+              className={`mx-auto text-center text-3xl font-bold text-gray-800 capitalize opacity-80 ${dark && 'text-white'} transition duration-500`}
             >
               {product.attributes?.title}
             </h1>
             <h2
-              className={`mt-1 text-center font-bold tracking-wider text-gray-800 capitalize opacity-50 ${dark && 'text-white'}`}
+              className={`mt-1 text-center font-bold tracking-wider text-gray-800 capitalize opacity-50 ${dark && 'text-white'} transition duration-500`}
             >
               {product.attributes?.company}
             </h2>
-            <p className={`text-center text-xl font-light opacity-80 ${dark && 'text-white'}`}>
+            <p className={`text-center text-xl font-light opacity-80 ${dark && 'text-white'} transition duration-500`}>
               {formatted(Number(product.attributes?.price))}
             </p>
-            <p className={`mx-2 mt-5 text-center tracking-wide opacity-70 ${dark && 'text-white'}`}>
+            <p className={`mx-2 mt-5 text-center tracking-wide opacity-70 ${dark && 'text-white'} transition duration-500`}>
               {product.attributes?.description}
             </p>
             <p
-              className={`mt-5 text-center font-bold tracking-widest opacity-90 ${dark && 'text-white'}`}
+              className={`mt-5 text-center font-bold tracking-widest opacity-90 ${dark && 'text-white'} transition duration-500`}
             >
               Colors
             </p>
@@ -61,19 +70,19 @@ const SingleProduct = () => {
                     }}
                     key={index}
                     style={{ backgroundColor: color }}
-                    className={`h-5 w-5 rounded-full ${active && 'scale-110 border-2 border-blue-800'} cursor-pointer`}
+                    className={`h-5 w-5 rounded-full ${active && 'scale-110 border-2 border-blue-800'} cursor-pointer transition duration-500`}
                   ></div>
                 );
               })}
             </div>
             <div className='flex flex-col items-center justify-center'>
               <p
-                className={`mt-5 text-center font-bold tracking-widest opacity-90 ${dark && 'text-white'}`}
+                className={`mt-5 text-center font-bold tracking-widest opacity-90 ${dark && 'text-white'} transition duration-500`}
               >
                 Amount
               </p>
               <div
-                className={`mt-2 flex w-10/12 items-center justify-center rounded-xl border border-blue-500 px-5 py-2 ${dark && 'bg-gray-400'}`}
+                className={`mt-2 flex w-10/12 items-center justify-center rounded-xl border border-blue-500 px-5 py-2 ${dark && 'bg-gray-400'} transition duration-500`}
               >
                 <select
                   name='amount'
@@ -94,7 +103,7 @@ const SingleProduct = () => {
                 className={`mx-auto my-10 cursor-pointer rounded-xl px-5 py-2 font-bold tracking-wide shadow-xl`}
               >
                 <p
-                  className={`text-gray-400 opacity-80 ${dark && 'text-pink-500'} text-shadow-black text-shadow-xs`}
+                  className={`text-gray-400 opacity-80 ${dark && 'text-white'} text-shadow-black text-shadow-xs transition duration-500`}
                 >
                   ADD TO BAG
                 </p>
