@@ -1,14 +1,13 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 'use client';
-import { removeItem, updateAmount } from '@/lib/features/cartSlice';
+import CartList from '@/components/shared/CartList';
 import { RootState } from '@/lib/store/store';
-import formatted from '@/lib/utils/formatPrice';
-import { useDispatch, useSelector } from 'react-redux';
+import { calculateTotal } from '@/lib/utils/calculateTotal';
+import { useSelector } from 'react-redux';
 const page = () => {
   const dark = useSelector((state: RootState) => state.theme.dark);
   const cart = useSelector((state: RootState) => state.cartSlice.cart);
-  const dispatch = useDispatch();
-  const selectOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+  const { totalPrice } = calculateTotal(cart);
 
   return (
     <div className={`${dark && 'bg-gray-700'} min-h-screen transition duration-500`}>
@@ -30,77 +29,61 @@ const page = () => {
                 className={`mx-auto mt-3 h-[1px] w-full border bg-black opacity-20 shadow`}
               ></div>
             </div>
-            <div>
-              {cart.map((item, index) => {
-                const formattedPrice = formatted(Number(item.attributes?.price)).split('$');
-                return (
-                  <div key={index} className='mt-10'>
-                    <img
-                      src={item.attributes?.image}
-                      alt={item.attributes?.title}
-                      className='mx-auto mt-5 w-8/12 max-w-md rounded-xl'
-                    />
-                    <div className='mt-5 md:w-1/2'>
-                      <h1
-                        className={`mx-auto text-center text-xl font-bold text-gray-800 capitalize opacity-80 ${dark && 'text-white'} transition duration-500`}
-                      >
-                        {item.attributes?.title}
-                      </h1>
-                      <h2
-                        className={`mt-1 text-center tracking-wider text-gray-800 capitalize opacity-50 ${dark && 'text-white'} transition duration-500`}
-                      >
-                        {item.attributes?.company}
-                      </h2>
-                      <div className='flex items-center justify-center gap-2'>
-                        <p className={`${dark && 'text-white'} opacity-80`}>color:</p>
-                        <div
-                          style={{ backgroundColor: item.attributes.color }}
-                          className={`h-4 w-4 cursor-pointer rounded-full`}
-                        ></div>
-                      </div>
-                      <div className='mt-1 flex items-center justify-center gap-2'>
-                        <p className={`${dark && 'text-white'} opacity-80`}>Amount:</p>
-                        <select
-                          defaultValue={item.attributes.amount}
-                          onChange={(e) =>
-                            dispatch(
-                              updateAmount({
-                                amount: Number(e.target.value),
-                                id: item.id,
-                                color: item.attributes.color,
-                              }),
-                            )
-                          }
-                          name='amount'
-                          id='amount'
-                          className={`w-1/2 cursor-pointer rounded-xl border opacity-80 focus:outline-none ${dark && 'bg-gray-700 text-white'}`}
-                        >
-                          {selectOptions.map((i) => {
-                            return (
-                              <option key={i} value={i}>
-                                {i}
-                              </option>
-                            );
-                          })}
-                        </select>
-                      </div>
-                      <p
-                        className='my-2 cursor-pointer text-center text-red-400'
-                        onClick={() =>
-                          dispatch(removeItem({ id: item.id, color: item.attributes.color }))
-                        }
-                      >
-                        remove
-                      </p>
-                      <p
-                        className={`text-center text-lg font-light opacity-80 ${dark && 'text-white'} transition duration-500`}
-                      >
-                        $ {Number(formattedPrice[1]) * item.attributes.amount}
-                      </p>
-                    </div>
-                  </div>
-                );
-              })}
+            <CartList />
+            <div
+              className={`mx-auto mt-20 mb-10 flex w-10/12 flex-col items-center justify-center rounded-xl py-10 ${dark && 'bg-gray-800'}`}
+            >
+              <div className='w-full'>
+                <div className='mx-auto flex w-9/12 justify-between'>
+                  <p
+                    className={`${dark && 'text-white'} text-sm text-[12px] font-thin tracking-wide opacity-90`}
+                  >
+                    Subtotal
+                  </p>
+                  <p className={`${dark && 'text-white'} text-[14px] opacity-90`}>
+                    ${totalPrice / 100}
+                  </p>
+                </div>
+                <div className='mx-auto mt-1 h-[1px] w-10/12 bg-black'></div>
+              </div>
+              <div className='mt-2 w-full'>
+                <div className='mx-auto flex w-9/12 justify-between'>
+                  <p
+                    className={`${dark && 'text-white'} text-sm text-[12px] font-thin tracking-wide opacity-90`}
+                  >
+                    Shipping
+                  </p>
+                  <p className={`${dark && 'text-white'} text-[14px] opacity-90`}>$5.00</p>
+                </div>
+                <div className='mx-auto mt-1 h-[1px] w-10/12 bg-black'></div>
+              </div>
+              <div className='mt-2 w-full'>
+                <div className='mx-auto flex w-9/12 justify-between'>
+                  <p
+                    className={`${dark && 'text-white'} text-sm text-[12px] font-thin tracking-wide opacity-90`}
+                  >
+                    Tax
+                  </p>
+                  <p className={`${dark && 'text-white'} text-[14px] opacity-90`}>
+                    $ {Math.ceil(totalPrice / 1000)}.00
+                  </p>
+                </div>
+                <div className='mx-auto mt-1 h-[1px] w-10/12 bg-black'></div>
+              </div>
+
+              <div className='mt-5 flex gap-10'>
+                <p className={`${dark && 'text-white'}`}>Order Total</p>
+                <p className={`${dark && 'text-white'} font-bold`}>
+                  ${totalPrice / 100 + Math.ceil(totalPrice / 1000) + 5.0}
+                </p>
+              </div>
+            </div>
+            <div className='w-full flex justify-center'>
+              <button
+                className={`mx-auto mb-10 rounded-xl px-8 py-3 opacity-70 ${dark && 'bg-pink-500'}`}
+              >
+                PLEASE LOG IN
+              </button>
             </div>
           </div>
         )}
