@@ -5,7 +5,7 @@ export const calculateTotal = (cart: CartProduct[]) => {
   let totalAmount = 0;
   cart.map((item) => {
     totalAmount += item.attributes.amount;
-    totalPrice = Number(item.attributes.price) * item.attributes.amount;
+    totalPrice += Number(item.attributes.price) * item.attributes.amount;
   });
   return { totalAmount, totalPrice };
 };

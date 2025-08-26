@@ -1,8 +1,10 @@
 import { RootState } from '@/lib/store/store';
+import { calculateTotal } from '@/lib/utils/calculateTotal';
 import { useSelector } from 'react-redux';
 
 const CartCalculate = () => {
-  const totalPrice = useSelector((state: RootState) => state.cartSlice.totalPrice);
+  const cart = useSelector((state: RootState) => state.cartSlice.cart);
+  const { totalPrice } = calculateTotal(cart);
   const dark = useSelector((state: RootState) => state.theme.dark);
   return (
     <div>
@@ -48,7 +50,7 @@ const CartCalculate = () => {
         <div className='mt-5 flex gap-10'>
           <p className={`${dark && 'text-white'}`}>Order Total</p>
           <p className={`${dark && 'text-white'} font-bold`}>
-            ${totalPrice / 100 + Math.ceil(totalPrice / 1000) + 5.0}
+            ${(totalPrice / 100 + Math.ceil(totalPrice / 1000) + 5.0).toFixed(2)}
           </p>
         </div>
       </div>
