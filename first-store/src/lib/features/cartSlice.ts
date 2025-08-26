@@ -1,8 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import type { CartProduct } from '../types/types';
+import { calculateTotal } from '../utils/calculateTotal';
 
-const initialState: { cart: CartProduct[] } = {
+const initialState: { cart: CartProduct[]; totalPrice: number; totalAmount: number } = {
   cart: JSON.parse(localStorage.getItem('cart') || '[]'),
+  totalPrice: 0,
+  totalAmount: 0,
 };
 
 const cartSlice = createSlice({
@@ -18,12 +21,14 @@ const cartSlice = createSlice({
       );
 
       if (existingIndex >= 0) {
-        let currentAmount = state.cart[existingIndex].attributes.amount;
-        currentAmount += amount;
-        if (currentAmount > 20) currentAmount = 20;
+        state.cart[existingIndex].attributes.amount += amount;
+        if (state.cart[existingIndex].attributes.amount > 20)
+          state.cart[existingIndex].attributes.amount = 20;
       } else {
         state.cart.push({ id, attributes });
       }
+      state.totalAmount = calculateTotal(state.cart).totalAmount;
+      state.totalPrice = calculateTotal(state.cart).totalPrice;
       localStorage.setItem('cart', JSON.stringify(state.cart));
     },
     updateAmount: (state, action: PayloadAction<{ id: number; amount: number; color: string }>) => {
@@ -34,6 +39,8 @@ const cartSlice = createSlice({
       if (existingIndex >= 0) {
         state.cart[existingIndex].attributes.amount = amount;
       }
+      state.totalAmount = calculateTotal(state.cart).totalAmount;
+      state.totalPrice = calculateTotal(state.cart).totalPrice;
       localStorage.setItem('cart', JSON.stringify(state.cart));
     },
     removeItem: (state, action: PayloadAction<{ id: number; color: string }>) => {
@@ -42,6 +49,8 @@ const cartSlice = createSlice({
         (item) => item.id === id && item.attributes.color === color,
       );
       state.cart.splice(existingIndex, 1);
+      state.totalAmount = calculateTotal(state.cart).totalAmount;
+      state.totalPrice = calculateTotal(state.cart).totalPrice;
       localStorage.setItem('cart', JSON.stringify(state.cart));
     },
   },

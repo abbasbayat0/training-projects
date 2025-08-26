@@ -6,12 +6,11 @@ import NavLinks from '../ui/NavLinks';
 import Link from 'next/link';
 import { useSelector } from 'react-redux';
 import { RootState } from '@/lib/store/store';
-import { calculateTotal } from '@/lib/utils/calculateTotal';
 
 const Navbar = () => {
   const dark = useSelector((state: RootState) => state.theme.dark);
-  const cart = useSelector((state: RootState) => state.cartSlice.cart);
-  const { totalAmount } = calculateTotal(cart);
+  const totalAmount = useSelector((state: RootState) => state.cartSlice.totalAmount);
+
   return (
     <article className={`${dark ? 'bg-gray-900' : 'bg-gray-200'} transition duration-500`}>
       <section className='mx-auto flex max-w-7xl justify-between px-3 py-2'>

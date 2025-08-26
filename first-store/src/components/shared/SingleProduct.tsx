@@ -81,7 +81,7 @@ const SingleProduct = () => {
                     }}
                     key={index}
                     style={{ backgroundColor: color }}
-                    className={`h-5 w-5 rounded-full ${active && 'scale-110 border-2 border-blue-800'} cursor-pointer transition duration-500`}
+                    className={`h-5 w-5 rounded-full ${active ? 'scale-110 border-2 border-blue-800' : ''} cursor-pointer transition duration-500`}
                   ></div>
                 );
               })}
