@@ -26,7 +26,7 @@ const Navbar = () => {
         </div>
         <div className='flex items-center justify-end gap-2'>
           <ThemeIcon />
-          <div className='relative'>
+          <Link href='/cart' className='relative'>
             <MdOutlineShoppingCart
               className={`${dark && 'text-white'} cursor-pointer text-2xl opacity-80 transition duration-500`}
             />
@@ -37,7 +37,7 @@ const Navbar = () => {
             >
               0
             </div>
-          </div>
+          </Link>
         </div>
       </section>
     </article>

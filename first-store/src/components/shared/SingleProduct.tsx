@@ -114,7 +114,18 @@ const SingleProduct = () => {
               </div>
               <button
                 onClick={() => {
-                  dispatch(addToCart({ newItem: product, amount: amount }));
+                  const resultItem = {
+                    id: product.id as number,
+                    attributes: {
+                      amount: amount as number,
+                      color: activeColor as string,
+                      title: product.attributes?.title as string,
+                      company: product.attributes?.company as string,
+                      image: product.attributes?.image as string,
+                      price: product.attributes?.price as string,
+                    },
+                  };
+                  dispatch(addToCart(resultItem));
                 }}
                 style={{ backgroundColor: activeColor }}
                 className={`mx-auto my-10 cursor-pointer rounded-xl px-5 py-2 font-bold tracking-wide shadow-xl`}

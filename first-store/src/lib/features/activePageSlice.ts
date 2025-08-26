@@ -6,7 +6,6 @@ const activePageSlice = createSlice({
   initialState,
   reducers: {
     setActivePage: (state, action: PayloadAction<string>) => {
-      console.log(action);
       state.activePage = action.payload;
     },
   },

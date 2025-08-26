@@ -42,17 +42,14 @@ export type SingleProduct = {
   };
 };
 
-export type CartPayload = {
-  newItem: SingleProduct;
-  amount: number;
-};
-
-export type Attributes = {
-  title: string;
-  company: string;
-  description: string;
-  image: string;
-  price: string;
-  amount: number;
-  colors: string[];
+export type CartProduct = {
+  id: number;
+  attributes: {
+    title: string;
+    company: string;
+    image: string;
+    price: string;
+    amount: number;
+    color: string;
+  };
 };
