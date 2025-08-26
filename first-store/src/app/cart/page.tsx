@@ -1,6 +1,6 @@
 'use client';
 import { RootState } from '@/lib/store/store';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 const page = () => {
   const dark = useSelector((state: RootState) => state.theme.dark);
   const cart = useSelector((state: RootState) => state.cartSlice.cart);
