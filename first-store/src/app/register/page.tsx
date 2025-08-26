@@ -1,9 +1,10 @@
 'use client';
-import store from '@/lib/store/storev';
+import { RootState } from '@/lib/store/store';
 import Link from 'next/link';
+import { useSelector } from 'react-redux';
 
 const page = () => {
-  const { dark } = store();
+  const dark = useSelector((state: RootState) => state.theme.dark);
 
   return (
     <div className={`h-screen w-full ${dark && 'bg-gray-800'} transition duration-500`}>

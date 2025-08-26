@@ -1,7 +1,9 @@
 'use client';
-import store from '@/lib/store/storev';
+import { RootState } from '@/lib/store/store';
+import { useDispatch, useSelector } from 'react-redux';
 const page = () => {
-  const { dark, cart } = store();
+  const dark = useSelector((state: RootState) => state.theme.dark);
+  const cart = useSelector((state: RootState) => state.cartSlice.cart);
   return (
     <div className={`${dark && 'bg-gray-700'} min-h-screen transition duration-500`}>
       <div className='mx-auto flex flex-col px-5 pt-16 md:flex-row md:justify-around md:pb-16'>

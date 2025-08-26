@@ -1,16 +1,17 @@
 import useFetchProducts from '@/lib/hooks/useFetchProducts';
 import { Product } from '@/lib/types/types';
-import store from '@/lib/store/storev';
 import ProductCart from '../ui/ProductCart';
 import { useState } from 'react';
 import ShowIcons from '../ui/ShowIcons';
 import ProductGrid from '../ui/ProductGrid';
+import { useSelector } from 'react-redux';
+import { RootState } from '@/lib/store/store';
 
 const ProductsList = () => {
   const [showMode, setShowMode] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const { status, data } = useFetchProducts(currentPage);
-  const { dark } = store();
+  const dark = useSelector((state: RootState) => state.theme.dark);
   let products: Product[] = [];
   if (status === 'success') products = [...data?.data.data];
 

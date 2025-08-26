@@ -5,14 +5,15 @@ import formatted from '@/lib/utils/formatPrice';
 import { useParams } from 'next/navigation';
 import { useState } from 'react';
 import Link from 'next/link';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@/lib/store/store';
+import { addToCart } from '@/lib/features/cartSlice';
 
 const SingleProduct = () => {
   const dark = useSelector((state: RootState) => state.theme.dark);
-
   const { id } = useParams();
-  // const { addToCart } = store();
+  const dispatch = useDispatch();
+
   const selectOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
   const [amount, setAmount] = useState(1);
   const { status, data } = useFetchSingleProduct(Number(id));
@@ -112,9 +113,9 @@ const SingleProduct = () => {
                 </select>
               </div>
               <button
-                // onClick={() => {
-                //   addToCart(product, amount);
-                // }}
+                onClick={() => {
+                  dispatch(addToCart({ newItem: product, amount: amount }));
+                }}
                 style={{ backgroundColor: activeColor }}
                 className={`mx-auto my-10 cursor-pointer rounded-xl px-5 py-2 font-bold tracking-wide shadow-xl`}
               >

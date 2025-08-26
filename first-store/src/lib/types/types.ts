@@ -1,14 +1,5 @@
 import { Dispatch, SetStateAction } from 'react';
 
-export type Store = {
-  dark: boolean;
-  activePage: string;
-  cart: SingleProduct[];
-  addToCart: (newItem: SingleProduct, amount: number) => void;
-  setTheme: () => void;
-  setActivePage: (newItem: string) => void;
-};
-
 export type Product = {
   id: number;
   attributes: {
@@ -49,4 +40,19 @@ export type SingleProduct = {
     amount: number;
     colors: string[];
   };
+};
+
+export type CartPayload = {
+  newItem: SingleProduct;
+  amount: number;
+};
+
+export type Attributes = {
+  title: string;
+  company: string;
+  description: string;
+  image: string;
+  price: string;
+  amount: number;
+  colors: string[];
 };

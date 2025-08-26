@@ -1,13 +1,14 @@
 /* eslint-disable @next/next/no-img-element */
 'use client';
 import useFetchFeatured from '@/lib/hooks/useFetchFeatured';
-import store from '@/lib/store/storev';
 import { Product } from '@/lib/types/types';
 import ProductCart from '../ui/ProductCart';
+import { useSelector } from 'react-redux';
+import { RootState } from '@/lib/store/store';
 // import getFeatured from '@/lib/actions/action';
 
 const FeaturedProducts = () => {
-  const { dark } = store();
+  const dark = useSelector((state: RootState) => state.theme.dark);
   const { status, data } = useFetchFeatured();
   let products: Product[] = [];
   if (status === 'success') products = [...data?.data.data];

@@ -2,10 +2,11 @@
 import { IoGridOutline } from 'react-icons/io5';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import type { ShowIconMode } from '@/lib/types/types';
-import store from '@/lib/store/storev';
+import { RootState } from '@/lib/store/store';
+import { useSelector } from 'react-redux';
 
 const ShowIcons = ({ showMode, setShowMode }: ShowIconMode) => {
-  const { dark } = store();
+  const dark = useSelector((state: RootState) => state.theme.dark);
   const bg = dark ? 'bg-pink-600 text-black' : 'bg-blue-600 text-white';
   return (
     <div className={`flex gap-2`}>

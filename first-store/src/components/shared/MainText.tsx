@@ -1,11 +1,11 @@
 'use client';
+import { setActivePage } from '@/lib/features/activePageSlice';
 import { RootState } from '@/lib/store/store';
-import store from '@/lib/store/storev';
 import Link from 'next/link';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 const MainText = () => {
-  const { setActivePage } = store();
+  const dispatch = useDispatch();
   const dark = useSelector((state: RootState) => state.theme.dark);
 
   return (
@@ -24,7 +24,7 @@ const MainText = () => {
           perspiciatis. Rerum animi facere culpa eos porro exercitationem. Ab, tempore?
         </p>
         <Link
-          onClick={() => setActivePage('/products')}
+          onClick={() => dispatch(setActivePage('/products'))}
           href='/products'
           className={`w-auto max-w-36 rounded-xl p-2 py-3 text-sm text-nowrap text-white opacity-90 ${
             dark ? 'bg-pink-600' : 'bg-blue-600'

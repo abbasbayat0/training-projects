@@ -1,8 +1,10 @@
 'use client';
-import store from '@/lib/store/storev';
+import { RootState } from '@/lib/store/store';
+import { useSelector } from 'react-redux';
 
 const page = () => {
-  const { dark } = store();
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const dark = useSelector((state: RootState) => state.theme.dark);
   return (
     <div className={`h-screen w-full ${dark && 'bg-gray-600'} transition duration-500`}>
       <div className={`mx-auto flex max-w-7xl flex-col items-center justify-center`}>

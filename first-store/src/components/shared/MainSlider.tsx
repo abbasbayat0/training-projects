@@ -1,10 +1,11 @@
 'use client';
 import images from '@/assets/sliderImages';
-import store from '@/lib/store/storev';
+import { RootState } from '@/lib/store/store';
 import Image from 'next/image';
+import { useSelector } from 'react-redux';
 
 const MainSlider = () => {
-  const { dark } = store();
+  const dark = useSelector((state: RootState) => state.theme.dark);
   return (
     <article className={`mr-2 hidden sm:flex sm:w-1/3`}>
       <section
