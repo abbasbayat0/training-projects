@@ -2,6 +2,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import formatted from '@/lib/utils/formatPrice';
 import { removeItem, updateAmount } from '@/lib/features/cartSlice';
 import { RootState } from '@/lib/store/store';
+import Link from 'next/link';
+import { setActivePage } from '@/lib/features/activePageSlice';
 
 const CartList = () => {
   const dispatch = useDispatch();
@@ -13,14 +15,21 @@ const CartList = () => {
       {cart.map((item, index) => {
         const formattedPrice = formatted(Number(item.attributes?.price)).split('$');
         return (
-          <div key={index} className='mt-10 sm:flex sm:flex-col md:flex-row md:gap-2 lg:gap-10'>
-            <img
-              src={item.attributes?.image}
-              alt={item.attributes?.title}
-              className='mx-auto mt-5 w-52 max-w-md rounded-xl md:w-32'
-            />
-            <div className='mt-5 md:mt-12 md:flex md:gap-3 lg:gap-10'>
-              <div>
+          <div key={index} className='my-10 sm:flex sm:flex-col md:flex-row md:gap-2 lg:gap-10'>
+            <Link
+              onClick={() => {
+                dispatch(setActivePage('/products'));
+              }}
+              href={`/products/${item.id}`}
+            >
+              <img
+                src={item.attributes?.image}
+                alt={item.attributes?.title}
+                className='mx-auto mt-5 w-52 max-w-md rounded-xl md:w-32'
+              />
+            </Link>
+            <div className='mt-5 md:mt-12 md:flex md:w-2/3 md:gap-3 lg:gap-12'>
+              <div className='md:w-1/2'>
                 <h1
                   className={`mx-auto text-center text-xl font-bold text-gray-800 capitalize opacity-80 md:text-base md:text-nowrap ${dark && 'text-white'} transition duration-500`}
                 >
@@ -33,16 +42,20 @@ const CartList = () => {
                   {item.attributes?.company}
                 </h2>
                 <div className='mt-2 flex items-center justify-center gap-2'>
-                  <p className={`${dark && 'text-white'} opacity-80`}>color:</p>
+                  <p className={`${dark && 'text-white'} opacity-80 transition duration-500`}>
+                    color:
+                  </p>
                   <div
                     style={{ backgroundColor: item.attributes.color }}
                     className={`h-4 w-4 cursor-pointer rounded-full`}
                   ></div>
                 </div>
               </div>
-              <div>
+              <div className='md:w-1/2'>
                 <div className='mt-2 flex items-center justify-center gap-2 md:mt-0'>
-                  <p className={`${dark && 'text-white'} opacity-80`}>Amount:</p>
+                  <p className={`${dark && 'text-white'} opacity-80 transition duration-500`}>
+                    Amount:
+                  </p>
                   <select
                     defaultValue={item.attributes.amount}
                     onChange={(e) =>
@@ -56,7 +69,7 @@ const CartList = () => {
                     }
                     name='amount'
                     id='amount'
-                    className={`w-52 cursor-pointer rounded-xl border px-2 opacity-80 focus:outline-none sm:w-20 ${dark && 'bg-gray-700 text-white'}`}
+                    className={`w-52 cursor-pointer rounded-xl border px-2 opacity-80 focus:outline-none sm:w-20 ${dark && 'bg-gray-700 text-white'} transition duration-500`}
                   >
                     {selectOptions.map((i) => {
                       return (

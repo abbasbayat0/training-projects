@@ -10,10 +10,12 @@ const page = () => {
 
   return (
     <div className={`${dark && 'bg-gray-700'} min-h-screen transition duration-500`}>
-      <div className='mx-auto flex flex-col px-5 pt-16 max-w-7xl'>
+      <div className='mx-auto flex max-w-7xl flex-col px-5 pt-16 transition duration-500'>
         {cart.length === 0 ? (
           <div>
-            <h1 className={`${dark && 'text-white'} text-center text-3xl font-bold`}>
+            <h1
+              className={`${dark && 'text-white'} text-center text-3xl font-bold transition duration-500`}
+            >
               Your Cart Is Empty !
             </h1>
             <div className={`mx-auto mt-3 h-[1px] w-full border bg-black opacity-20 shadow`}></div>
@@ -21,7 +23,9 @@ const page = () => {
         ) : (
           <div>
             <div>
-              <h1 className={`${dark && 'text-white'} text-center text-3xl font-bold`}>
+              <h1
+                className={`${dark && 'text-white'} text-center text-3xl font-bold transition duration-500`}
+              >
                 Shopping Cart
               </h1>
               <div

@@ -4,13 +4,15 @@ import ThemeIcon from '../ui/ThemeIcon';
 import NavMenu from '../ui/NavMenu';
 import NavLinks from '../ui/NavLinks';
 import Link from 'next/link';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@/lib/store/store';
 import { calculateTotal } from '@/lib/utils/calculateTotal';
+import { setActivePage } from '@/lib/features/activePageSlice';
 
 const Navbar = () => {
   const dark = useSelector((state: RootState) => state.theme.dark);
   const cart = useSelector((state: RootState) => state.cartSlice.cart);
+  const dispatch = useDispatch();
   const { totalAmount } = calculateTotal(cart);
 
   return (
@@ -30,7 +32,7 @@ const Navbar = () => {
         </div>
         <div className='flex items-center justify-end gap-2'>
           <ThemeIcon />
-          <Link href='/cart' className='relative'>
+          <Link href='/cart' className='relative' onClick={() => dispatch(setActivePage('/cart'))}>
             <MdOutlineShoppingCart
               className={`${dark && 'text-white'} cursor-pointer text-2xl opacity-80 transition duration-500`}
             />
